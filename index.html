@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./tailwind.config.js"></script> 
+   
+    <link rel="icon" href="./images/title.png" type="image/x-icon">
+    <title>Gilani</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ovo&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="overflow-x-hidden leading-6 font-Outfit dark:bg-darkTheme dark:text-white">
+
+    <nav
+      class="w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50"
+    >
+      <img
+        src="./images/logo.png"
+        alt="Logo"
+        class="w-28 cursor-pointer mr-14 dark:hidden"
+      />
+      <img
+        src="./images/logo_dark.png"
+        alt="Logo"
+        class="w-28 cursor-pointer mr-14 hidden dark:block"
+      />
+
+      <ul
+        class="hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 bg-white shadow-sm bg-opacity-50 font-Ovo dark:border
+        dark:border-white/50 dark:bg-transparent"
+      >
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About me</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#work">My Work</a></li>
+        <li><a href="#contact">Contact me</a></li>
+      </ul>
+      <div class="flex items-center gap-4">
+        <button id="toggleButton">
+          <img src="./images/moon_icon.png" class="w-6 dark:hidden" />
+          <img src="./images/sun_icon.png" class="w-6 hidden dark:block" />
+        </button>
+        <a
+          class="hidden lg:flex items-center gap-3 px-10 py-2.5 
+          border border-gray-500 rounded-full ml-4 font-Ovo
+          dark:border-white/50"
+          href="#contact"
+        >
+          Contact
+          <img src="./images/arrow-icon.png" class="w-3 dark:hidden" />
+          <img src="./images/arrow-icon-dark.png" class="w-3 hidden dark:block" />
+        </a>
+
+        <button class="block md:hidden ml-3" onclick="openMenu()">
+          <img src="./images/menu-black.png" class="w-6 dark:hidden" />
+          <img src="./images/menu-white.png" class="w-6 hidden dark:block" />
+        </button>
+      </div>
+
+      <!-- Mobile menu -->
+      <ul
+        id="sidemenu"
+        class="font-Ovo flex md:hidden flex-col 
+        gap-4 py-20 px-10 fixed -right-64 top-0 
+        bottom-0 w-64 z-50 h-screen bg-rose-50 
+        transition duration-500 dark:bg-[#2a004a] dark:text-white"
+      >
+        <div class="absolute right-6 top-6" onclick="closeMenu()">
+          <img
+            src="./images/close-black.png"
+            class="w-5 cursor-pointer dark:hidden"
+            alt=""
+            srcset=""
+          />
+          <img
+            src="./images/close-white.png"
+            class="w-5 cursor-pointer hidden dark:block"
+            alt=""
+            srcset=""
+          />
+        </div>
+        <li><a href="#home" onclick="closeMenu()">Home</a></li>
+        <li><a href="#about" onclick="closeMenu()">About me</a></li>
+        <li><a href="#services" onclick="closeMenu()">Services</a></li>
+        <li><a href="#work" onclick="closeMenu()">My Work</a></li>
+        <li><a href="#contact" onclick="closeMenu()">Contact me</a></li>
+      </ul>
+    </nav>
+
+    <!-- header Section -->
+
+    <div
+      id="home" 
+      class=" w-11/12 max-w-3xl text-center mx-auto min-h-screen flex flex-col items-center justify-center gap-4 pt-28 md:pt-32"
+>
+      <h3
+  class="font-Ovo md:mt-10 flex items-center gap-2 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-1"
+>
+  Hi! I'm Adil Gilani
+  <img
+    src="./images/hand-icon.png"
+    class="w-5 sm:w-6 md:w-8 rounded-3xl max-w-none"
+    alt="hand wave"
+  />
+</h3>
+
+      <h1
+  class="font-Ovo text-2xl sm:text-3xl md:text-4xl lg:text-[35px] font-semibold"
+>
+  Software Engineer
+</h1>
+
+      <p class="max-w-3xl mx-auto font-Ovo"
+        
+        >
+       I’m a passionate Frontend Developer with hands-on experience in Angular, TypeScript, 
+       and modern UI frameworks like Tailwind CSS and Bootstrap. I specialize in building responsive, 
+       accessible, and performance-driven web applications that combine clean design with efficient 
+       functionality.My focus is on delivering pixel-perfect interfaces, ensuring cross-browser 
+       compatibility, and integrating seamlessly with RESTful APIs to create smooth, dynamic user 
+       experiences.<br/>
+      I enjoy transforming ideas into interactive digital products and continuously learning new 
+      technologies to enhance my craft. Whether it’s optimizing performance, improving UX, or 
+      collaborating in a team environment, I’m always driven to create web solutions that make an 
+      impact.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center gap-4 mt-4">
+        <a
+          href="#contact"
+          class="px-10 py-3 border rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] text-white flex items-center gap-2
+          dark:border-transparent"
+          
+          >
+          Contact me <img src="./images/right-arrow-white.png" class="w-4" />
+        </a>
+
+        <a
+          href="./resume.pdf"
+          download
+          class="px-10 py-3 border border-gray-500 
+          rounded-full bg-white flex items-center gap-2 dark:text-black"
+          
+          >
+          My Resume <img src="./images/download-icon.png" class="w-4" />
+        </a>
+      </div>
+    </div>
+
+    <!-- About me -->
+
+    <div id="about" class="w-full px-4 sm:px-6 lg:px-[10%] py-10 overflow-x-hidden">
+      <!-- <h4 class="text-center mb-2 text-lg font-Ovo"
+          
+      >Intrduction</h4> -->
+      <h2 class="text-center text-5xl font-Ovo"
+      
+      >About me</h2>
+
+      <div class="flex w-full flex-col lg:flex-row items-center gap-20 my-20">
+        <div class="max-w-max mx-auto relative">
+          <img
+            src="./images/user-image.jpg"
+            class="w-64 sm:w-80 rounded-3xl max-w-none"
+            alt=""
+            srcset=""
+            data-aos="zoom-out-left"
+            data-aos-easing="ease-in-out"
+            data-aos-duration="2000"
+            />
+
+          <div
+            class=" absolute right-0 bottom-0 rounded-full translate-x-1/4 translate-y-1/3 shadow-[0_4px_55px_rgba(149,0,1162,0.15)] flex items-center justify-center"
+          >
+          </div>
+        </div>
+        <div class="flex-1">
+          <p class="mb-5 max-w-2xl font-Ovo ml-3 mr-3" 
+           
+          >
+           Hi! I’m Adil Gilani, a Frontend Developer who loves crafting beautiful, user-friendly, 
+           and high-performing web applications. With a strong foundation in Angular, TypeScript, 
+           JavaScript, and Tailwind CSS, I focus on turning complex ideas into clean, 
+           responsive designs that work seamlessly across all devices.<br/>
+           I enjoy every part of the development process — from brainstorming concepts and 
+           designing layouts to writing efficient code and optimizing performance. My goal is to 
+           build experiences that not only look great but also feel effortless to use.
+
+
+          </p>
+          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl ml-3 mr-3"
+          
+          >
+            <li
+              class="border-[0.5px] border-gray-400 
+              rounded-xl p-6 cursor-pointer
+               hover:bg-[#fcf4ff] hover:-translate-y-1 
+               duration-500 hover:shadow-black dark:border-white
+               dark:hover:shadow-white dark:hover:bg-darkHover/50"
+            >
+              <img
+                src="./images/code-icon.png"
+                class="w-7 mt-3 dark:hidden"
+                alt=""
+                srcset=""
+              />
+              <img
+                src="./images/code-icon-dark.png"
+                class="w-7 mt-3 hidden dark:block"
+                alt=""
+                srcset=""
+              />
+              <h3 class="my-4 font-semibold text-gray-700 dark:text-white">Languages & Frameworks</h3>
+              <p class="text-gray-600 text-sm dark:text-white/80"><b>Frontend:</b> Angular, TypeScript, JavaScript, HTML5, CSS3, SCSS<br>BOOTSTRAP,Material UI</p>
+              <p class="text-gray-600 text-sm dark:text-white/80"><br/><b>Tools:</b> Git, GitHub, VS Code, npm, WordPress</p>
+            </li>
+            <li
+              class="border-[0.5px] border-gray-400 
+              rounded-xl p-6 cursor-pointer
+               hover:bg-[#fcf4ff] hover:-translate-y-1 
+               duration-500 hover:shadow-black dark:border-white
+               dark:hover:shadow-white dark:hover:bg-darkHover/50"
+              
+            >
+              <img
+                src="./images/edu-icon.png"
+                class="w-7 mt-3 dark:hidden"
+                alt=""
+                srcset=""
+              />
+              <img
+                src="./images/edu-icon-dark.png"
+                class="w-7 mt-3 hidden dark:block"
+                alt=""
+                srcset=""
+              />
+              <h3 class="my-4 font-semibold text-gray-700 dark:text-white">Education</h3>
+              <p class="text-gray-600 text-sm dark:text-white/80"><b>Bachelors in Computer Software engineering</b></p>
+              <p class="text-gray-600 text-sm dark:text-white/80">Foundation University Islamabad</p>
+            </li>
+            
+          </ul>
+      <h4
+  class="my-6 text-gray-700 font-Ovo dark:text-white/80 
+         text-lg sm:text-xl md:text-2xl 
+         text-center px-3 leading-snug break-words w-full"
+>
+  Tools I use
+</h4>
+          <ul class="flex items-center gap-3 sm:gap-5"
+          
+          >
+            <li
+              class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500"
+              
+              >
+              <img src="./images/vs.png" alt="" srcset="" />
+            </li>
+
+            <li
+              class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500"
+              
+              >
+              <img src="./images/sql.png" alt="" srcset="" />
+            </li>
+
+            <li
+              class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500"
+              
+              >
+              <img src="./images/vscode.png" alt="" srcset="" />
+            </li>
+
+            
+            <li
+              class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500"
+              
+              >
+              <img src="./images/Illustrator.png" alt="" srcset="" />
+            </li>
+            <li
+              class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500"
+              
+              >
+              <img src="./images/photoshop.png" alt="" srcset="" />
+            </li>
+            <li
+              class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500"
+              
+              >
+              <img src="./images/figma.png" alt="" srcset="" />
+            </li>
+            <li
+              class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500"
+              
+              >
+              <img src="./images/git.png" alt="" srcset="" />
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- services -->
+    <div id="services" class="  w-full px-[12%] p-10 scroll-mt-20">
+      <!-- <h4 class="text-center mb-2 text-lg font-Ovo"
+         
+          >What i offer</h4> -->
+      <h2 class="text-center text-5xl font-Ovo"
+      data-aos="zoom-out"
+          data-aos-easing="ease-in-out"
+          data-aos-duration="2000">My services</h2>
+      <p class="max-w-3xl mx-auto text-center mt-5 mb-12 font-Ovo"
+      
+      >
+       Experienced Frontend Developer skilled in building responsive, high-performance,
+        and user-centric web applications using modern technologies such as Angular, 
+        TypeScript, JavaScript, Tailwind CSS, Bootstrap, HTML5, CSS3, and SCSS.
+       Proficient in integrating RESTful APIs, ensuring cross-browser compatibility, 
+       and crafting clean, maintainable code that enhances both performance and user experience.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-10"
+      
+      >
+        <div
+          class="border border-gray-400 rounded-lg px-5 
+          py-5 hover:shadow-black cursor-pointer 
+          hover:bg-[#fcf4ff] hover:translate-y-1 
+          duration-500 dark:hover:bg-darkHover dark:hover:shadow-white"
+          
+        >
+          <img src="./images/web-icon.png" class="W-10" alt="" srcset="" />
+          <h3 class="text-lg my-4 text-gray-700 dark:text-white">Web Development</h3>
+          <p class="text-sm text-gray-600 leading-5 dark:text-white/80">
+            Develop and maintain scalable web applications by integrating clean front-end interfaces
+             with secure and efficient back-end services.
+          </p>
+        </div>
+       
+        <div
+          class="border border-gray-400 rounded-lg px-5 py-5 
+          hover:shadow-black cursor-pointer 
+          hover:bg-[#fcf4ff] hover:translate-y-1 
+          duration-500 dark:hover:bg-darkHover dark:hover:shadow-white"
+         
+        >
+          <img src="./images/graphics-icon.png" class="W-10" alt="" srcset="" />
+          <h3 class="text-lg my-4 text-gray-700 dark:text-white">Graphics Design</h3>
+          <p class="text-sm text-gray-600 leading-5 dark:text-white/80">
+            Providing the services of logo designing, banners and social media
+            posts.
+          </p>
+        </div>
+        <div
+          class="border border-gray-400 rounded-lg px-5 py-5 
+          hover:shadow-black cursor-pointer 
+          hover:bg-[#fcf4ff] hover:translate-y-1 duration-500
+          dark:hover:bg-darkHover dark:hover:shadow-white"
+         
+        >
+          <img src="./images/ui-icon.png" class="W-10" alt="" srcset="" />
+          <h3 class="text-lg my-4 text-gray-700 dark:text-white">Ui/Ux Design</h3>
+          <p class="text-sm text-gray-600 leading-5 dark:text-white/80">
+            UI/UX design services focus on creating visually appealing, and
+            user-friendly digital experiences that meet your business goals.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Work -->
+
+    <div id="work" class="  w-full px-[12%] p-10 scroll-mt-20">
+      <!-- <h4 class="text-center mb-2 text-lg font-Ovo"
+      >My Portfolio</h4> -->
+      <h2 class="text-center text-5xl font-Ovo"
+      >My Latest Work</h2>
+    
+      <div
+        id="work-container"
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 
+        lg:grid-cols-4 my-10 gap-5 dark:text-black"
+       
+        >
+        <!-- Cards will be injected here -->
+      </div>
+    </div>
+    
+    <!-- Contact -->
+    <div
+      id="contact"
+      class="  w-full px-[12%] py-10 scroll-mt-20 bg-[url('./images/footer-bg-color.png')] 
+      bg-no-repeat bg-[length:90%_auto] bg-center
+      dark:bg-none"
+    >
+      <!-- <h4 class="text-center mb-2 text-lg font-Ovo"
+      
+        >Connect with me</h4> -->
+      <h2 class="text-center text-5xl font-Ovo" 
+      >Get in Touch</h2>
+      <form action="https://api.web3forms.com/submit" method="POST" class="max-w-2xl mx-auto">
+        <input type="hidden" name="access_key" value="3874e084-3234-4679-ac25-25d29dbdc529">
+        <div class="grid md:grid-cols-2 grid-cols-1 gap-6 mt-10 mb-8">
+          <input
+            type="text"
+            name="name"
+            placeholder="Enter your name"
+            class="flex-1 p-3 outeline-none border-[0.5px] 
+            border-gray-400 rounded-md bg-white dark:bg-darkHover/30
+            dark:border-white/90"
+            id=""
+            required
+            
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Enter your email"
+            class="flex-1 p-3 outeline-none border-[0.5px] 
+            border-gray-400 rounded-md bg-white dark:bg-darkHover/30
+            dark:border-white/90"
+           
+            id=""
+            required
+            
+          />
+        </div>
+
+        <textarea
+          rows="6"
+          name="message"
+          placeholder="Enter your message"
+          class="w-full p-4 outline-none border-[0.5px] 
+          border-gray-400 rounded-md bg-white mb-6 dark:bg-darkHover/30
+          dark:border-white/90"
+          id=""
+          required
+         
+        ></textarea>
+        <button
+          class="py-3 px-8 w-max flex items-center 
+          justify-between gap-2 bg-black/80 text-white 
+          rounded-full mx-auto hover:bg-black duration-500
+          dark:bg-transparent dark:border-[0.5px] dark:hover:bg-darkHover"
+          
+          >
+          Submit now
+          <img
+            src="./images/right-arrow-white.png"
+            class="w-4"
+            alt=""
+            srcset=""
+          />
+        </button>
+      </form>
+    </div>
+
+    <!-- footer -->
+    <div class="mt-20  ">
+      <div class="text-center">
+        <img
+          src="./images/logo.png"
+          class="w-36 mx-auto mb-2 dark:hidden"
+          alt=""
+          srcset=""
+          
+        />
+        <img
+          src="./images/logo_dark.png"
+          class="w-36 mx-auto mb-2 hidden dark:block"
+          alt=""
+          srcset=""
+          
+        />
+
+        <div class="w-max flex items-center gap-2 mx-auto"
+        
+        >
+          <img src="./images/mail_icon.png" class="w-6 dark:hidden" alt="" srcset="" />
+          <img src="./images/mail_icon_dark.png" class="w-6 hidden dark:block" alt="" srcset="" />
+          adilgilani94@gmail.com
+        </div>
+      </div>
+      <div
+        class="text-center sm:flex item-center justify-between border-t border-gray-400 mx-[10%] my-12 py-6"
+      >
+        <p>&copy; 2025 Adil Gilani. All rights reserved.</p>
+        <ul class="flex items-center gap-10 justify-center mt-4 sm:mt-0">
+          <li><a href="https://instagram.com/gilani.adil">Instagram</a></li>
+          <li><a href="https://github.com/gilaniadill">GitHub</a></li>
+          <li><a href="https://linkedin.com/in/gilaniadil">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="./js/script.js"></script>
+    <script src="./js/projects.js"></script>
+
+
+    <!-- <script>
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+</script>
+     -->
+  </body>
+</html>
