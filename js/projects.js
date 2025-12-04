@@ -1,4 +1,10 @@
 const works = [
+  {
+      title: "Point Of Sale",
+      description: "Angular Front End",
+      image: "./images/pos.png",
+      link: "https://gilaniadill.github.io/PointOfSale-Angular/"
+    },
    {
       title: "Ecommerce Website",
       description: "Asp.net Core Web API",
