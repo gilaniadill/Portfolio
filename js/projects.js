@@ -1,5 +1,12 @@
 const works = [
-   {
+   
+    {
+      title: "Buraq Studio ",
+      description: "Company Website",
+      image: "./images/buraq.png",
+      link: "https://gilaniadill.github.io/buraqstudio/home",
+    },
+  {
       title: "Ecommerce Website",
       description: "Asp.net Core Web API",
       image: "./images/foodmart.png",
