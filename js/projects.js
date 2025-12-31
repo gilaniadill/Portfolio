@@ -1,4 +1,5 @@
 const works = [
+<<<<<<< HEAD
    
     {
       title: "Buraq Studio ",
@@ -7,6 +8,15 @@ const works = [
       link: "https://gilaniadill.github.io/buraqstudio/home",
     },
   {
+=======
+  {
+      title: "Point Of Sale",
+      description: "Angular Front End",
+      image: "./images/pos.png",
+      link: "https://gilaniadill.github.io/PointOfSale-Angular/"
+    },
+   {
+>>>>>>> 9d73d6cf40cf61f54586b9229773f16a1cf919a1
       title: "Ecommerce Website",
       description: "Asp.net Core Web API",
       image: "./images/foodmart.png",
