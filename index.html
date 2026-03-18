@@ -4,347 +4,764 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="./tailwind.config.js"></script>
 
-  <link rel="icon" href="./images/title.png" type="image/x-icon">
-  <title>Gilani</title>
+  <!-- AOS Library for scroll animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ovo&display=swap" rel="stylesheet" />
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <title>Adil Gilani - Software Engineer</title>
+
+  <style>
+    /* Font assignments */
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.3s ease;
+    }
+    
+    .font-serif-display {
+      font-family: 'Cormorant Garamond', serif;
+    }
+    
+    .font-mono-code {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    
+    /* Animated gradient background */
+    .gradient-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      background: linear-gradient(-45deg, #f0f4ff, #e6ecfe, #f5f0ff, #e8f0fe);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+    }
+    
+    .dark .gradient-bg {
+      background: linear-gradient(-45deg, #0b0f17, #141b2b, #1a1f30, #0f172a);
+      background-size: 400% 400%;
+    }
+    
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    /* Floating orbs */
+    .orb {
+      position: fixed;
+      width: 50vmax;
+      height: 50vmax;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, rgba(120, 160, 255, 0.15), transparent 70%);
+      z-index: -1;
+      pointer-events: none;
+      animation: float 20s infinite alternate ease-in-out;
+    }
+    
+    .dark .orb {
+      background: radial-gradient(circle at 30% 30%, rgba(70, 110, 200, 0.1), transparent 70%);
+    }
+    
+    .orb-1 {
+      top: -10%;
+      left: -10%;
+      animation: float1 25s infinite alternate;
+    }
+    
+    .orb-2 {
+      bottom: -10%;
+      right: -10%;
+      width: 60vmax;
+      height: 60vmax;
+      background: radial-gradient(circle at 70% 70%, rgba(200, 160, 255, 0.15), transparent 70%);
+      animation: float2 30s infinite alternate;
+    }
+    
+    @keyframes float1 {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(5%, 8%) scale(1.1); }
+    }
+    
+    @keyframes float2 {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(-8%, -5%) scale(1.15); }
+    }
+    
+    /* Navigation */
+    nav {
+      backdrop-filter: blur(10px);
+      background-color: rgba(255, 255, 255, 0.8);
+      transition: background-color 0.3s ease;
+    }
+    
+    .dark nav {
+      background-color: rgba(10, 15, 25, 0.9);
+    }
+    
+    /* Glass cards */
+    .glass-card {
+      backdrop-filter: blur(8px);
+      background-color: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      transition: all 0.3s ease;
+    }
+    
+    .dark .glass-card {
+      background-color: rgba(20, 25, 40, 0.7);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Dark mode text colors */
+    .dark, .dark * {
+      color-scheme: dark;
+    }
+    
+    .dark p, .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6, .dark li, .dark a:not(.dark\:text-black) {
+      color: #ffffff;
+    }
+    
+    .dark .text-gray-600, .dark .text-gray-700, .dark .text-gray-800 {
+      color: #e5e7eb !important;
+    }
+    
+    /* Placeholder color for dark mode */
+    .dark input::placeholder, .dark textarea::placeholder {
+      color: #9ca3af !important;
+    }
+    
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Mobile menu */
+    #sidemenu {
+      transition: right 0.3s ease-in-out;
+    }
+
+    /* Profile image placeholder */
+    .profile-placeholder {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .profile-placeholder::after {
+      content: '👨‍💻';
+      font-size: 5rem;
+      filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));
+    }
+
+    /* Tool icons */
+    .tool-icon {
+      width: 3rem;
+      height: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 0.75rem;
+      font-size: 1.5rem;
+      color: #4a5568;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .dark .tool-icon {
+      color: #fff;
+    }
+
+    .tool-icon:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    /* Project cards */
+    .project-card {
+      aspect-ratio: 1;
+      background-size: cover;
+      background-position: center;
+      border-radius: 0.75rem;
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+    }
+
+    .project-overlay {
+      background: rgba(255, 255, 255, 0.95);
+      width: 90%;
+      border-radius: 0.75rem;
+      position: absolute;
+      bottom: 1.25rem;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(4px);
+    }
+
+    .dark .project-overlay {
+      background: rgba(20, 25, 40, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .project-card:hover .project-overlay {
+      bottom: 1.75rem;
+    }
+
+    .project-link {
+      width: 2.5rem;
+      height: 2.5rem;
+      border: 1px solid #000;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 2px 2px 0 #000;
+      transition: all 0.3s ease;
+    }
+
+    .dark .project-link {
+      border-color: #fff;
+      box-shadow: 2px 2px 0 #fff;
+    }
+
+    .project-link:hover {
+      background: #d9f99d;
+    }
+
+    .dark .project-link:hover {
+      background: #3b82f6;
+    }
+  </style>
 </head>
 
-<body class="overflow-x-hidden leading-6 font-Outfit dark:bg-darkTheme dark:text-white">
+<body class="overflow-x-hidden antialiased">
 
+  <!-- Animated Background -->
+  <div class="gradient-bg"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <!-- Navigation -->
   <nav class="w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50">
-    <img src="./images/logo.png" alt="Logo" class="w-28 cursor-pointer mr-14 dark:hidden" />
-    <img src="./images/logo_dark.png" alt="Logo" class="w-28 cursor-pointer mr-14 hidden dark:block" />
+    <!-- Logo with icon -->
+    <div class="flex items-center gap-2 text-2xl font-bold font-serif-display dark:text-white mr-14">
+      <i class="fas fa-code text-purple-600"></i>
+      <span class="bg-gradient-to-r from-purple-600 to-orange-500 text-transparent bg-clip-text">AG</span>
+    </div>
 
-    <ul class="hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 bg-white shadow-sm bg-opacity-50 font-Ovo dark:border
-        dark:border-white/50 dark:bg-transparent">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About me</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#work">My Work</a></li>
-      <li><a href="#contact">Contact me</a></li>
+    <!-- Desktop Menu -->
+    <ul class="hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 bg-white/60 backdrop-blur-sm shadow-sm dark:bg-gray-900/50 dark:border dark:border-white/10 font-medium">
+      <li><a href="#home" class="dark:text-white hover:text-purple-600 transition"><i class="fas fa-home mr-2"></i>Home</a></li>
+      <li><a href="#about" class="dark:text-white hover:text-purple-600 transition"><i class="fas fa-user mr-2"></i>About me</a></li>
+      <li><a href="#services" class="dark:text-white hover:text-purple-600 transition"><i class="fas fa-cog mr-2"></i>Services</a></li>
+      <li><a href="#work" class="dark:text-white hover:text-purple-600 transition"><i class="fas fa-briefcase mr-2"></i>My Work</a></li>
+      <li><a href="#contact" class="dark:text-white hover:text-purple-600 transition"><i class="fas fa-envelope mr-2"></i>Contact me</a></li>
     </ul>
+
+    <!-- Right side buttons -->
     <div class="flex items-center gap-4">
-      <button id="toggleButton">
-        <img src="./images/moon_icon.png" class="w-6 dark:hidden" />
-        <img src="./images/sun_icon.png" class="w-6 hidden dark:block" />
+      <button id="toggleButton" class="w-10 h-10 rounded-full bg-white/30 backdrop-blur-sm flex items-center justify-center dark:bg-gray-800/50">
+        <i class="fas fa-moon dark:hidden text-gray-700"></i>
+        <i class="fas fa-sun hidden dark:block text-yellow-400"></i>
       </button>
-      <a class="hidden lg:flex items-center gap-3 px-10 py-2.5 
-          border border-gray-500 rounded-full ml-4 font-Ovo
-          dark:border-white/50" href="#contact">
+
+      <a class="hidden lg:flex items-center gap-3 px-8 py-2.5 border border-gray-400 rounded-full ml-4 font-medium bg-white/30 backdrop-blur-sm dark:border-white/30 dark:text-white hover:bg-white/50 transition" href="#contact">
+        <i class="fas fa-paper-plane"></i>
         Contact
-        <img src="./images/arrow-icon.png" class="w-3 dark:hidden" />
-        <img src="./images/arrow-icon-dark.png" class="w-3 hidden dark:block" />
       </a>
 
-      <button class="block md:hidden ml-3" onclick="openMenu()">
-        <img src="./images/menu-black.png" class="w-6 dark:hidden" />
-        <img src="./images/menu-white.png" class="w-6 hidden dark:block" />
+      <button class="block md:hidden ml-3 w-10 h-10 rounded-full bg-white/30 backdrop-blur-sm flex items-center justify-center dark:bg-gray-800/50" onclick="openMenu()">
+        <i class="fas fa-bars dark:text-white"></i>
       </button>
     </div>
 
-    <!-- Mobile menu -->
-    <ul id="sidemenu" class="font-Ovo flex md:hidden flex-col 
-        gap-4 py-20 px-10 fixed -right-64 top-0 
-        bottom-0 w-64 z-50 h-screen bg-rose-50 
-        transition duration-500 dark:bg-[#2a004a] dark:text-white">
-      <div class="absolute right-6 top-6" onclick="closeMenu()">
-        <img src="./images/close-black.png" class="w-5 cursor-pointer dark:hidden" alt="" srcset="" />
-        <img src="./images/close-white.png" class="w-5 cursor-pointer hidden dark:block" alt="" srcset="" />
+    <!-- Mobile Menu -->
+    <ul id="sidemenu" class="flex md:hidden flex-col gap-6 py-20 px-10 fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen bg-white/90 backdrop-blur-xl transition-all duration-300 dark:bg-gray-900/95">
+      <div class="absolute right-6 top-6">
+        <button onclick="closeMenu()" class="text-2xl dark:text-white"><i class="fas fa-times"></i></button>
       </div>
-      <li><a href="#home" onclick="closeMenu()">Home</a></li>
-      <li><a href="#about" onclick="closeMenu()">About me</a></li>
-      <li><a href="#services" onclick="closeMenu()">Services</a></li>
-      <li><a href="#work" onclick="closeMenu()">My Work</a></li>
-      <li><a href="#contact" onclick="closeMenu()">Contact me</a></li>
+      <li><a href="#home" onclick="closeMenu()" class="dark:text-white text-lg"><i class="fas fa-home mr-3"></i>Home</a></li>
+      <li><a href="#about" onclick="closeMenu()" class="dark:text-white text-lg"><i class="fas fa-user mr-3"></i>About me</a></li>
+      <li><a href="#services" onclick="closeMenu()" class="dark:text-white text-lg"><i class="fas fa-cog mr-3"></i>Services</a></li>
+      <li><a href="#work" onclick="closeMenu()" class="dark:text-white text-lg"><i class="fas fa-briefcase mr-3"></i>My Work</a></li>
+      <li><a href="#contact" onclick="closeMenu()" class="dark:text-white text-lg"><i class="fas fa-envelope mr-3"></i>Contact me</a></li>
     </ul>
   </nav>
 
-  <!-- header Section -->
+  <!-- Home Section -->
+  <section id="home" class="min-h-screen flex items-center justify-center px-4 pt-20">
+    <div class="max-w-4xl text-center">
+      <div class="mb-6" data-aos="fade-down">
+        <i class="fas fa-hand-peace text-6xl text-purple-600 animate-wave"></i>
+      </div>
+      
+      <h3 class="font-serif-display text-5xl md:text-7xl font-semibold mb-4 dark:text-white" data-aos="fade-down">
+        Hi! I'm Adil Gilani
+      </h3>
 
-  <div id="home"
-    class=" w-11/12 max-w-3xl text-center mx-auto min-h-screen flex flex-col items-center justify-center gap-4 pt-28 md:pt-32">
-    <h3 class="font-Ovo md:mt-10 flex items-center gap-2 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-1">
-      Hi! I'm Adil Gilani
-      <img src="./images/hand-icon.png" class="w-5 sm:w-6 md:w-8 rounded-3xl max-w-none" alt="hand wave" />
-    </h3>
+      <h2 class="font-mono-code text-2xl md:text-3xl text-gray-700 dark:text-gray-200 mb-6" data-aos="fade-up" data-aos-delay="100">
+        <i class="fas fa-terminal mr-2 text-purple-600"></i>
+        Software Engineer
+      </h2>
 
-    <h1 class="font-Ovo text-2xl sm:text-3xl md:text-4xl lg:text-[35px] font-semibold">
-      Software Engineer
-    </h1>
+      <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8 leading-relaxed" data-aos="fade-up" data-aos-delay="200">
+        <i class="fas fa-quote-left mr-2 text-purple-600 opacity-50"></i>
+        Software Engineer with hands-on experience in Angular, TypeScript, Mean Stack, JavaScript,
+        HTML5, CSS3, Asp.net Core Web API, and modern UI frameworks like Tailwind CSS and Bootstrap.
+        I specialize in building responsive, accessible, and performance-driven web applications.
+      </p>
 
-    <p class="max-w-3xl mx-auto font-Ovo">
-      Software Engineer with hands-on experience in Angular, TypeScript, Mean Stack, JavaScript,
-      HTML5, CSS3,Asp.net Core Web API, and modern UI frameworks like Tailwind CSS and Bootstrap. I specialize in
-      building responsive,
-      accessible, and performance-driven web applications that combine clean design with efficient
-      functionality.My focus is on delivering pixel-perfect interfaces, ensuring cross-browser
-      compatibility, and integrating seamlessly with RESTful APIs to create smooth, dynamic user
-      experiences.<br />
-      I enjoy transforming ideas into interactive digital products and continuously learning new
-      technologies to enhance my craft. Whether it’s optimizing performance, improving UX, or
-      collaborating in a team environment, I’m always driven to create web solutions that make an
-      impact.
-    </p>
-
-    <div class="flex flex-col sm:flex-row items-center gap-4 mt-4">
-      <a href="#contact" class="px-10 py-3 border rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] text-white flex items-center gap-2
-          dark:border-transparent">
-        Contact me <img src="./images/right-arrow-white.png" class="w-4" />
-      </a>
-
-      <a href="./resume.pdf" download class="px-10 py-3 border border-gray-500 
-          rounded-full bg-white flex items-center gap-2 dark:text-black">
-        My Resume <img src="./images/download-icon.png" class="w-4" />
-      </a>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="zoom-in" data-aos-delay="300">
+        <a href="#contact" class="px-8 py-3 bg-gradient-to-r from-purple-600 to-orange-500 text-white rounded-full font-medium hover:shadow-lg transition flex items-center justify-center gap-2">
+          <i class="fas fa-paper-plane"></i>
+          Contact me
+        </a>
+        <a href="#" class="px-8 py-3 border border-gray-400 rounded-full font-medium bg-white/50 backdrop-blur-sm dark:bg-gray-800/50 dark:text-white hover:bg-white transition flex items-center justify-center gap-2">
+          <i class="fas fa-download"></i>
+          My Resume
+        </a>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <!-- About me -->
+  <!-- About Section -->
+  <section id="about" class="py-20 px-4">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="font-serif-display text-5xl md:text-6xl text-center mb-16 dark:text-white" data-aos="flip-left">
+        <i class="fas fa-user-circle mr-4 text-purple-600"></i>
+        About me
+      </h2>
 
-  <div id="about" class="w-full px-4 sm:px-6 lg:px-[10%] py-10 overflow-x-hidden">
-    <!-- <h4 class="text-center mb-2 text-lg font-Ovo"
+      <div class="flex flex-col lg:flex-row gap-12 items-center">
+        <!-- Profile Image with Icon -->
+        <div class="w-64 h-64 rounded-3xl profile-placeholder shadow-2xl" data-aos="fade-right"></div>
+
+        <div class="flex-1" data-aos="fade-left">
+          <p class="text-lg text-gray-700 dark:text-gray-200 mb-8 leading-relaxed">
+            <i class="fas fa-quote-left text-purple-600 mr-2"></i>
+            Hi! I'm Adil Gilani, a Software Engineer who loves crafting beautiful, user-friendly,
+            and high-performing web applications. With a strong foundation in Angular, TypeScript,
+            JavaScript, and Tailwind CSS, I focus on turning complex ideas into clean,
+            responsive designs that work seamlessly across all devices.
+          </p>
+
+          <div class="grid sm:grid-cols-2 gap-6">
+            <!-- Languages Card -->
+            <div class="glass-card p-6 rounded-xl" data-aos="fade-up" data-aos-delay="100">
+              <div class="text-3xl mb-4 text-purple-600">
+                <i class="fas fa-laptop-code"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3 dark:text-white flex items-center gap-2">
+                <i class="fas fa-code text-sm"></i>
+                Languages & Frameworks
+              </h3>
+              <p class="text-sm text-gray-600 dark:text-gray-300">
+                <span class="font-mono-code block mb-2"><i class="fas fa-angle-right mr-2"></i>Frontend:</span>
+                Angular, TypeScript, JavaScript, HTML5, CSS3, SCSS<br>
+                <span class="font-mono-code block mt-2 mb-2"><i class="fas fa-angle-right mr-2"></i>Tools:</span>
+                Git, VS Code, npm
+              </p>
+            </div>
+
+            <!-- Education Card -->
+            <div class="glass-card p-6 rounded-xl" data-aos="fade-up" data-aos-delay="200">
+              <div class="text-3xl mb-4 text-purple-600">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3 dark:text-white flex items-center gap-2">
+                <i class="fas fa-university"></i>
+                Education
+              </h3>
+              <p class="text-sm text-gray-600 dark:text-gray-300">
+                <span class="font-mono-code block mb-2"><i class="fas fa-angle-right mr-2"></i>Bachelors in Computer Software Engineering</span>
+                Foundation University Islamabad
+              </p>
+            </div>
+          </div>
+
+          <h4 class="text-2xl font-serif-display text-center mt-12 mb-6 dark:text-white">
+            <i class="fas fa-tools mr-2 text-purple-600"></i>
+            Tools I use
+          </h4>
           
-      >Intrduction</h4> -->
-    <h2 class="text-center text-5xl font-Ovo">About me</h2>
-
-    <div class="flex w-full flex-col lg:flex-row items-center gap-20 my-20">
-      <div class="max-w-max mx-auto relative">
-        <img src="./images/user-image.jpg" class="w-64 sm:w-80 rounded-3xl max-w-none" alt="" srcset=""
-          data-aos="zoom-out-left" data-aos-easing="ease-in-out" data-aos-duration="2000" />
-
-        <div
-          class=" absolute right-0 bottom-0 rounded-full translate-x-1/4 translate-y-1/3 shadow-[0_4px_55px_rgba(149,0,1162,0.15)] flex items-center justify-center">
+          <div class="grid grid-cols-4 sm:grid-cols-7 gap-4 max-w-lg mx-auto">
+            <div class="tool-icon"><i class="fab fa-microsoft"></i></div>
+            <div class="tool-icon"><i class="fas fa-database"></i></div>
+            <div class="tool-icon"><i class="fas fa-code"></i></div>
+            <div class="tool-icon"><i class="fas fa-paint-brush"></i></div>
+            <div class="tool-icon"><i class="fas fa-image"></i></div>
+            <div class="tool-icon"><i class="fab fa-figma"></i></div>
+            <div class="tool-icon"><i class="fab fa-git-alt"></i></div>
+          </div>
         </div>
       </div>
-      <div class="flex-1">
-        <p class="mb-5 max-w-2xl font-Ovo ml-3 mr-3">
-          Hi! I’m Adil Gilani, a Software Engineer who loves crafting beautiful, user-friendly,
-          and high-performing web applications. With a strong foundation in Angular, TypeScript,
-          JavaScript, and Tailwind CSS, I focus on turning complex ideas into clean,
-          responsive designs that work seamlessly across all devices.<br />
-          I enjoy every part of the development process — from brainstorming concepts and
-          designing layouts to writing efficient code and optimizing performance. My goal is to
-          build experiences that not only look great but also feel effortless to use.
-
-
-        </p>
-        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl ml-3 mr-3">
-          <li class="border-[0.5px] border-gray-400 
-              rounded-xl p-6 cursor-pointer
-               hover:bg-[#fcf4ff] hover:-translate-y-1 
-               duration-500 hover:shadow-black dark:border-white
-               dark:hover:shadow-white dark:hover:bg-darkHover/50">
-            <img src="./images/code-icon.png" class="w-7 mt-3 dark:hidden" alt="" srcset="" />
-            <img src="./images/code-icon-dark.png" class="w-7 mt-3 hidden dark:block" alt="" srcset="" />
-            <h3 class="my-4 font-semibold text-gray-700 dark:text-white">Languages & Frameworks</h3>
-            <p class="text-gray-600 text-sm dark:text-white/80"><b>Frontend:</b> Angular, TypeScript, JavaScript, HTML5,
-              CSS3, SCSS<br>BOOTSTRAP,Material UI</p>
-            <p class="text-gray-600 text-sm dark:text-white/80"><br /><b>Tools:</b> Git, GitHub, VS Code, npm, WordPress
-            </p>
-          </li>
-          <li class="border-[0.5px] border-gray-400 
-              rounded-xl p-6 cursor-pointer
-               hover:bg-[#fcf4ff] hover:-translate-y-1 
-               duration-500 hover:shadow-black dark:border-white
-               dark:hover:shadow-white dark:hover:bg-darkHover/50">
-            <img src="./images/edu-icon.png" class="w-7 mt-3 dark:hidden" alt="" srcset="" />
-            <img src="./images/edu-icon-dark.png" class="w-7 mt-3 hidden dark:block" alt="" srcset="" />
-            <h3 class="my-4 font-semibold text-gray-700 dark:text-white">Education</h3>
-            <p class="text-gray-600 text-sm dark:text-white/80"><b>Bachelors in Computer Software engineering</b></p>
-            <p class="text-gray-600 text-sm dark:text-white/80">Foundation University Islamabad</p>
-          </li>
-
-        </ul>
-        <h4 class="my-6 text-gray-700 font-Ovo dark:text-white/80 
-         text-lg sm:text-xl md:text-2xl 
-         text-center px-3 leading-snug break-words w-full">
-          Tools I use
-        </h4>
-        <ul class="grid grid-cols-3 sm:grid-cols-5 gap-3 sm:gap-5 justify-items-center mx-auto">
-          <li
-            class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
-            <img src="./images/vs.png" alt="">
-          </li>
-
-          <li
-            class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
-            <img src="./images/sql.png" alt="">
-          </li>
-
-          <li
-            class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
-            <img src="./images/vscode.png" alt="">
-          </li>
-
-          <li
-            class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
-            <img src="./images/Illustrator.png" alt="">
-          </li>
-
-          <li
-            class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
-            <img src="./images/photoshop.png" alt="">
-          </li>
-
-          <li
-            class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
-            <img src="./images/figma.png" alt="">
-          </li>
-
-          <li
-            class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
-            <img src="./images/git.png" alt="">
-          </li>
-        </ul>
-
-
-      </div>
     </div>
-  </div>
+  </section>
 
-  <!-- services -->
-  <div id="services" class="  w-full px-[12%] p-10 scroll-mt-20">
-    <!-- <h4 class="text-center mb-2 text-lg font-Ovo"
-         
-          >What i offer</h4> -->
-    <h2 class="text-center text-5xl font-Ovo" data-aos="zoom-out" data-aos-easing="ease-in-out"
-      data-aos-duration="2000">My services</h2>
-    <p class="max-w-3xl mx-auto text-center mt-5 mb-12 font-Ovo">
-      Experienced Software Engineer skilled in building responsive, high-performance,
-      and user-centric web applications using modern technologies such as Angular,
-      TypeScript, JavaScript, Tailwind CSS, Bootstrap, HTML5, CSS3, and SCSS.
-      Proficient in integrating RESTful APIs, ensuring cross-browser compatibility,
-      and crafting clean, maintainable code that enhances both performance and user experience.
-    </p>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-10">
-      <div class="border border-gray-400 rounded-lg px-5 
-          py-5 hover:shadow-black cursor-pointer 
-          hover:bg-[#fcf4ff] hover:translate-y-1 
-          duration-500 dark:hover:bg-darkHover dark:hover:shadow-white">
-        <img src="./images/web-icon.png" class="W-10" alt="" srcset="" />
-        <h3 class="text-lg my-4 text-gray-700 dark:text-white">Web Development</h3>
-        <p class="text-sm text-gray-600 leading-5 dark:text-white/80">
-          Develop and maintain scalable web applications by integrating clean front-end interfaces
-          with secure and efficient back-end services.
-        </p>
-      </div>
-
-      <div class="border border-gray-400 rounded-lg px-5 py-5 
-          hover:shadow-black cursor-pointer 
-          hover:bg-[#fcf4ff] hover:translate-y-1 
-          duration-500 dark:hover:bg-darkHover dark:hover:shadow-white">
-        <img src="./images/graphics-icon.png" class="W-10" alt="" srcset="" />
-        <h3 class="text-lg my-4 text-gray-700 dark:text-white">Graphics Design</h3>
-        <p class="text-sm text-gray-600 leading-5 dark:text-white/80">
-          Providing the services of logo designing, banners and social media
-          posts.
-        </p>
-      </div>
-      <div class="border border-gray-400 rounded-lg px-5 py-5 
-          hover:shadow-black cursor-pointer 
-          hover:bg-[#fcf4ff] hover:translate-y-1 duration-500
-          dark:hover:bg-darkHover dark:hover:shadow-white">
-        <img src="./images/ui-icon.png" class="W-10" alt="" srcset="" />
-        <h3 class="text-lg my-4 text-gray-700 dark:text-white">Ui/Ux Design</h3>
-        <p class="text-sm text-gray-600 leading-5 dark:text-white/80">
-          UI/UX design services focus on creating visually appealing, and
-          user-friendly digital experiences that meet your business goals.
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Work -->
-
-  <div id="work" class="  w-full px-[12%] p-10 scroll-mt-20">
-    <!-- <h4 class="text-center mb-2 text-lg font-Ovo"
-      >My Portfolio</h4> -->
-    <h2 class="text-center text-5xl font-Ovo">My Latest Work</h2>
-
-    <div id="work-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 
-        lg:grid-cols-3 my-10 gap-5 dark:text-black">
-      <!-- Cards will be injected here -->
-    </div>
-  </div>
-
-  <!-- Contact -->
-  <div id="contact" class="  w-full px-[12%] py-10 scroll-mt-20 bg-[url('./images/footer-bg-color.png')] 
-      bg-no-repeat bg-[length:90%_auto] bg-center
-      dark:bg-none">
-    <!-- <h4 class="text-center mb-2 text-lg font-Ovo"
+  <!-- Services Section -->
+  <section id="services" class="py-20 px-4">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="font-serif-display text-5xl md:text-6xl text-center mb-6 dark:text-white" data-aos="zoom-out">
+        <i class="fas fa-cogs mr-4 text-purple-600"></i>
+        My services
+      </h2>
       
-        >Connect with me</h4> -->
-    <h2 class="text-center text-5xl font-Ovo">Get in Touch</h2>
-    <form action="https://api.web3forms.com/submit" method="POST" class="max-w-2xl mx-auto">
-      <input type="hidden" name="access_key" value="3874e084-3234-4679-ac25-25d29dbdc529">
-      <div class="grid md:grid-cols-2 grid-cols-1 gap-6 mt-10 mb-8">
-        <input type="text" name="name" placeholder="Enter your name" class="flex-1 p-3 outeline-none border-[0.5px] 
-            border-gray-400 rounded-md bg-white dark:bg-darkHover/30
-            dark:border-white/90" id="" required />
-        <input type="email" name="email" placeholder="Enter your email" class="flex-1 p-3 outeline-none border-[0.5px] 
-            border-gray-400 rounded-md bg-white dark:bg-darkHover/30
-            dark:border-white/90" id="" required />
-      </div>
+      <p class="text-center text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-12" data-aos="fade-up">
+        <i class="fas fa-quote-left mr-2 text-purple-600"></i>
+        Experienced Software Engineer skilled in building responsive, high-performance,
+        and user-centric web applications using modern technologies.
+      </p>
 
-      <textarea rows="6" name="message" placeholder="Enter your message" class="w-full p-4 outline-none border-[0.5px] 
-          border-gray-400 rounded-md bg-white mb-6 dark:bg-darkHover/30
-          dark:border-white/90" id="" required></textarea>
-      <button class="py-3 px-8 w-max flex items-center 
-          justify-between gap-2 bg-black/80 text-white 
-          rounded-full mx-auto hover:bg-black duration-500
-          dark:bg-transparent dark:border-[0.5px] dark:hover:bg-darkHover">
-        Submit now
-        <img src="./images/right-arrow-white.png" class="w-4" alt="" srcset="" />
-      </button>
-    </form>
-  </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Web Development -->
+        <div class="glass-card p-8 rounded-2xl hover:-translate-y-2 transition-all cursor-pointer group" data-aos="fade-right">
+          <div class="text-4xl mb-4 text-purple-600">
+            <i class="fas fa-globe"></i>
+          </div>
+          <h3 class="text-2xl font-serif-display font-semibold mb-3 dark:text-white flex items-center gap-2">
+            <i class="fas fa-code text-sm"></i>
+            Web Development
+          </h3>
+          <p class="text-gray-600 dark:text-gray-300">
+            Develop and maintain scalable web applications with clean front-end interfaces and efficient back-end services.
+          </p>
+        </div>
 
-  <!-- footer -->
-  <div class="mt-20  ">
-    <div class="text-center">
-      <img src="./images/logo.png" class="w-36 mx-auto mb-2 dark:hidden" alt="" srcset="" />
-      <img src="./images/logo_dark.png" class="w-36 mx-auto mb-2 hidden dark:block" alt="" srcset="" />
+        <!-- Graphics Design -->
+        <div class="glass-card p-8 rounded-2xl hover:-translate-y-2 transition-all cursor-pointer group" data-aos="fade-up">
+          <div class="text-4xl mb-4 text-purple-600">
+            <i class="fas fa-paint-brush"></i>
+          </div>
+          <h3 class="text-2xl font-serif-display font-semibold mb-3 dark:text-white flex items-center gap-2">
+            <i class="fas fa-palette"></i>
+            Graphics Design
+          </h3>
+          <p class="text-gray-600 dark:text-gray-300">
+            Logo designing, banners, and social media posts with creative and modern aesthetic.
+          </p>
+        </div>
 
-      <div class="w-max flex items-center gap-2 mx-auto">
-        <img src="./images/mail_icon.png" class="w-6 dark:hidden" alt="" srcset="" />
-        <img src="./images/mail_icon_dark.png" class="w-6 hidden dark:block" alt="" srcset="" />
-        adilgilani94@gmail.com
+        <!-- UI/UX Design -->
+        <div class="glass-card p-8 rounded-2xl hover:-translate-y-2 transition-all cursor-pointer group" data-aos="fade-left">
+          <div class="text-4xl mb-4 text-purple-600">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h3 class="text-2xl font-serif-display font-semibold mb-3 dark:text-white flex items-center gap-2">
+            <i class="fas fa-draw-polygon"></i>
+            UI/UX Design
+          </h3>
+          <p class="text-gray-600 dark:text-gray-300">
+            Creating visually appealing and user-friendly digital experiences that meet your business goals.
+          </p>
+        </div>
       </div>
     </div>
-    <div class="text-center sm:flex item-center justify-between border-t border-gray-400 mx-[10%] my-12 py-6">
-      <p>&copy; 2025 Adil Gilani. All rights reserved.</p>
-      <ul class="flex items-center gap-10 justify-center mt-4 sm:mt-0">
-        <li><a href="https://instagram.com/gilani.adil">Instagram</a></li>
-        <li><a href="https://github.com/gilaniadill">GitHub</a></li>
-        <li><a href="https://linkedin.com/in/gilaniadil">LinkedIn</a></li>
-      </ul>
+  </section>
+
+  <!-- Work Section - Projects will be injected here -->
+  <section id="work" class="py-20 px-4">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="font-serif-display text-5xl md:text-6xl text-center mb-12 dark:text-white" data-aos="fade-down">
+        <i class="fas fa-briefcase mr-4 text-purple-600"></i>
+        My Latest Work
+      </h2>
+
+      <div id="work-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Projects will be injected here by JavaScript -->
+      </div>
     </div>
-  </div>
+  </section>
 
-  <script src="./js/script.js"></script>
-  <script src="./js/projects.js"></script>
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 px-4">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="font-serif-display text-5xl md:text-6xl text-center mb-12 dark:text-white" data-aos="flip-up">
+        <i class="fas fa-envelope mr-4 text-purple-600"></i>
+        Get in Touch
+      </h2>
 
+      <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6" data-aos="fade-up">
+        <input type="hidden" name="access_key" value="3874e084-3234-4679-ac25-25d29dbdc529">
+        
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="relative">
+            <i class="fas fa-user absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+            <input type="text" name="name" placeholder="Your Name" required
+                   class="w-full p-4 pl-12 rounded-xl border border-gray-300 bg-white/70 backdrop-blur-sm dark:bg-gray-800/50 dark:border-gray-600 dark:text-white">
+          </div>
+          <div class="relative">
+            <i class="fas fa-envelope absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+            <input type="email" name="email" placeholder="Your Email" required
+                   class="w-full p-4 pl-12 rounded-xl border border-gray-300 bg-white/70 backdrop-blur-sm dark:bg-gray-800/50 dark:border-gray-600 dark:text-white">
+          </div>
+        </div>
+        
+        <div class="relative">
+          <i class="fas fa-pencil-alt absolute left-4 top-6 text-gray-400"></i>
+          <textarea name="message" rows="5" placeholder="Your Message" required
+                    class="w-full p-4 pl-12 rounded-xl border border-gray-300 bg-white/70 backdrop-blur-sm dark:bg-gray-800/50 dark:border-gray-600 dark:text-white"></textarea>
+        </div>
+        
+        <button type="submit" 
+                class="px-10 py-3 bg-gradient-to-r from-purple-600 to-orange-500 text-white rounded-full mx-auto block hover:shadow-lg transition font-medium flex items-center gap-2">
+          <i class="fas fa-paper-plane"></i>
+          Send Message
+        </button>
+      </form>
+    </div>
+  </section>
 
-  <!-- <script>
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({
-          behavior: 'smooth'
-        });
+  <!-- Footer -->
+  <footer class="py-12 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-8">
+        <div class="flex items-center justify-center gap-2 text-3xl font-serif-display font-bold mb-4">
+          <i class="fas fa-code text-purple-600"></i>
+          <span class="bg-gradient-to-r from-purple-600 to-orange-500 text-transparent bg-clip-text">
+            Adil Gilani
+          </span>
+        </div>
+        <div class="flex items-center justify-center gap-2 text-sm glass-card w-max mx-auto px-6 py-3 rounded-full">
+          <i class="fas fa-envelope text-purple-600"></i>
+          <span class="dark:text-white">adilgilani94@gmail.com</span>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-300 dark:border-gray-700 pt-8">
+        <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p class="text-gray-600 dark:text-gray-300 flex items-center gap-2">
+            <i class="far fa-copyright"></i>
+            2025 Adil Gilani. All rights reserved.
+          </p>
+          <ul class="flex gap-8">
+            <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-purple-600 transition"><i class="fab fa-instagram mr-2"></i>Instagram</a></li>
+            <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-purple-600 transition"><i class="fab fa-github mr-2"></i>GitHub</a></li>
+            <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-purple-600 transition"><i class="fab fa-linkedin mr-2"></i>LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Your projects data
+    const works = [
+      {
+        title: "Buraq Studio",
+        description: "Company Website",
+        image: "./images/buraq.png",
+        link: "https://gilaniadill.github.io/buraqstudio/home",
+      },
+      {
+        title: "Ecommerce Website",
+        description: "Asp.net Core Web API",
+        image: "./images/foodmart.png",
+        link: "https://fooodmaart.netlify.app/",
+      },
+      {
+        title: "Yoga Website",
+        description: "Website for Yoga Classes",
+        image: "./images/work-1.png",
+        link: "https://yogastic.netlify.app/",
+      },
+      {
+        title: "Search Any Image",
+        description: "Unsplash Web API",
+        image: "./images/work-3.png",
+        link: "https://pixplorer-imagesearch.netlify.app/",
+      },
+      {
+        title: "Cyber Security Page",
+        description: "Cyber Security Awareness",
+        image: "./images/work-4.png",
+        link: "https://cyber-sec-avs.netlify.app/",
+      },
+    ];
+    
+    // Function to create project cards
+    function renderProjects() {
+      const container = document.getElementById("work-container");
+      if (!container) return;
+      
+      container.innerHTML = ''; // Clear container
+      
+      works.forEach((work, index) => {
+        const card = document.createElement("div");
+        card.className = "project-card";
+        card.setAttribute("data-aos", "zoom-in");
+        card.setAttribute("data-aos-delay", (index * 100).toString());
+        
+        // Set background image with fallback
+        card.style.backgroundImage = `url('${work.image}')`;
+        
+        // Add error handling for images
+        card.innerHTML = `
+          <a href="${work.link}" target="_blank" class="block w-full h-full">
+            <div class="project-overlay">
+              <div>
+                <h3 class="font-semibold text-gray-900 dark:text-white">${work.title}</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-300">${work.description}</p>
+              </div>
+              <div class="project-link">
+                <i class="fas fa-arrow-right text-gray-900 dark:text-white"></i>
+              </div>
+            </div>
+          </a>
+        `;
+        
+        // Add error handling for broken images
+        const img = new Image();
+        img.src = work.image;
+        img.onerror = function() {
+          card.style.backgroundImage = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+          // Add a fallback icon
+          const iconOverlay = document.createElement('div');
+          iconOverlay.className = 'absolute inset-0 flex items-center justify-center';
+          iconOverlay.innerHTML = '<i class="fas fa-code text-6xl text-white opacity-50"></i>';
+          card.appendChild(iconOverlay);
+        };
+        
+        container.appendChild(card);
+      });
+    }
+
+    // Initialize AOS
+    AOS.init({
+      duration: 1000,
+      once: false,
+      mirror: true,
+      offset: 50
+    });
+
+    // Mobile menu functions
+    window.openMenu = function() {
+      document.getElementById('sidemenu').style.right = '0';
+    };
+
+    window.closeMenu = function() {
+      document.getElementById('sidemenu').style.right = '-256px';
+    };
+
+    // Dark mode toggle with localStorage
+    const toggleButton = document.getElementById('toggleButton');
+    
+    // Check for saved theme preference
+    if (localStorage.getItem('darkMode') === 'enabled' || 
+        (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+    
+    toggleButton.addEventListener('click', function() {
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('darkMode', 'disabled');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('darkMode', 'enabled');
       }
     });
-  });
-</script>
-     -->
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('#sidemenu a').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    // Smooth scroll for all anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === "#") return;
+        
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Render projects when page loads
+    document.addEventListener('DOMContentLoaded', renderProjects);
+  </script>
+
+  <style>
+    /* Additional animations */
+    @keyframes wave {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(15deg); }
+      75% { transform: rotate(-15deg); }
+    }
+    
+    .animate-wave {
+      animation: wave 2s infinite;
+      display: inline-block;
+    }
+    
+    /* Ensure content is visible */
+    section {
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* Profile image placeholder */
+    .profile-placeholder {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .profile-placeholder::after {
+      content: '👨‍💻';
+      font-size: 5rem;
+      filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));
+    }
+    
+    /* Dark mode styles */
+    .dark .glass-card {
+      background-color: rgba(17, 24, 39, 0.7);
+    }
+    
+    /* Mobile menu adjustments */
+    @media (max-width: 768px) {
+      #sidemenu {
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+      }
+    }
+  </style>
 </body>
 
 </html>
