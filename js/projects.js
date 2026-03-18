@@ -38,7 +38,7 @@ const works = [
   },
 ];
 
-// Function to create project cards with black text
+// Function to create project cards with black text and animations
 function renderProjects() {
   const container = document.getElementById("work-container");
   if (!container) return;
@@ -50,11 +50,13 @@ function renderProjects() {
     card.className = "project-card";
     card.style.backgroundImage = `url('${work.image}')`;
     
-    // Only add AOS on larger screens for performance
-    if (window.innerWidth >= 768) {
-      card.setAttribute("data-aos", "zoom-in");
-      card.setAttribute("data-aos-delay", (index * 50).toString());
-    }
+    // Add AOS attributes for ALL devices - animations work everywhere
+    card.setAttribute("data-aos", "zoom-in");
+    card.setAttribute("data-aos-delay", (index * 100).toString());
+    card.setAttribute("data-aos-duration", "1000");
+    card.setAttribute("data-aos-easing", "ease-in-out");
+    card.setAttribute("data-aos-mirror", "true");
+    card.setAttribute("data-aos-once", "false");
     
     // Card HTML structure with black text
     card.innerHTML = `
@@ -85,6 +87,13 @@ function renderProjects() {
     
     container.appendChild(card);
   });
+  
+  // Refresh AOS after adding new elements
+  setTimeout(() => {
+    if (typeof AOS !== 'undefined') {
+      AOS.refresh();
+    }
+  }, 100);
 }
 
 // Render projects when page loads

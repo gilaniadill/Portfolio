@@ -1,10 +1,23 @@
-// Initialize AOS with mobile-friendly settings
+// Initialize AOS with proper settings for all devices
 AOS.init({
-  duration: 800, // Slightly faster on mobile
-  once: true, // Only animate once to prevent performance issues
-  mirror: false, // Disable mirror on mobile for better performance
-  offset: 30,
-  disable: window.innerWidth < 768 ? true : false // Disable AOS on very small screens for performance
+  duration: 1000,
+  once: false,
+  mirror: true,
+  offset: 50,
+  disable: false, // Make sure AOS is enabled on all devices
+  startEvent: 'DOMContentLoaded', // Ensure it starts after content loads
+  initClassName: 'aos-init', // Default classes
+  animatedClassName: 'aos-animate'
+});
+
+// Refresh AOS after a short delay to ensure all elements are loaded
+setTimeout(() => {
+  AOS.refresh();
+}, 500);
+
+// Also refresh on window load
+window.addEventListener('load', () => {
+  AOS.refresh();
 });
 
 // Mobile menu functions
@@ -104,7 +117,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Handle resize events
+// Handle resize events - but don't disable AOS
 let resizeTimer;
 window.addEventListener('resize', function() {
   clearTimeout(resizeTimer);
@@ -115,12 +128,8 @@ window.addEventListener('resize', function() {
       document.body.style.overflow = '';
     }
     
-    // Re-initialize AOS based on screen size
-    if (window.innerWidth < 768) {
-      AOS.init({ disable: true });
-    } else {
-      AOS.init({ disable: false });
-    }
+    // Refresh AOS on resize to recalculate positions
+    AOS.refresh();
   }, 250);
 });
 

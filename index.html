@@ -4,11 +4,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- AOS Library for scroll animations -->
+  <!-- AOS Library for scroll animations - CSS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
   <!-- Font Awesome for icons -->
@@ -17,13 +17,11 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-    rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/style.css">
-
+  
   <link rel="icon" type="image/x-icon" href="images/title.png">
   <title>Adil Gilani - Software Engineer</title>
 </head>
@@ -44,86 +42,69 @@
     </div>
 
     <!-- Desktop Menu -->
-    <ul
-      class="hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 bg-white/60 backdrop-blur-sm shadow-sm dark:bg-gray-900/50 dark:border dark:border-white/10 font-medium">
-      <li><a href="#home" class="dark:text-white hover:text-purple-600 transition"><i
-            class="fas fa-home mr-2"></i>Home</a></li>
-      <li><a href="#about" class="dark:text-white hover:text-purple-600 transition"><i
-            class="fas fa-user mr-2"></i>About me</a></li>
-      <li><a href="#services" class="dark:text-white hover:text-purple-600 transition"><i
-            class="fas fa-cog mr-2"></i>Services</a></li>
-      <li><a href="#work" class="dark:text-white hover:text-purple-600 transition"><i
-            class="fas fa-briefcase mr-2"></i>My Work</a></li>
-      <li><a href="#contact" class="dark:text-white hover:text-purple-600 transition"><i
-            class="fas fa-envelope mr-2"></i>Contact me</a></li>
+    <ul class="hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 bg-white/60 backdrop-blur-sm shadow-sm dark:bg-gray-900/50 dark:border dark:border-white/10 font-medium">
+      <li><a href="#home" class="dark:text-white hover:text-purple-600 transition"><i class="fas fa-home mr-2"></i>Home</a></li>
+      <li><a href="#about" class="dark:text-white hover:text-purple-600 transition"><i class="fas fa-user mr-2"></i>About me</a></li>
+      <li><a href="#services" class="dark:text-white hover:text-purple-600 transition"><i class="fas fa-cog mr-2"></i>Services</a></li>
+      <li><a href="#work" class="dark:text-white hover:text-purple-600 transition"><i class="fas fa-briefcase mr-2"></i>My Work</a></li>
+      <li><a href="#contact" class="dark:text-white hover:text-purple-600 transition"><i class="fas fa-envelope mr-2"></i>Contact me</a></li>
     </ul>
 
     <!-- Right side buttons -->
     <div class="flex items-center gap-4">
-      <button id="toggleButton"
-        class="theme-toggle w-10 h-10 rounded-full bg-white/30 backdrop-blur-sm flex items-center justify-center dark:bg-gray-800/50">
+      <button id="toggleButton" class="theme-toggle w-10 h-10 rounded-full bg-white/30 backdrop-blur-sm flex items-center justify-center dark:bg-gray-800/50">
         <i class="fas fa-moon dark:hidden text-gray-700"></i>
         <i class="fas fa-sun hidden dark:block text-yellow-400"></i>
       </button>
 
-      <a class="hidden lg:flex items-center gap-3 px-8 py-2.5 border border-gray-400 rounded-full ml-4 font-medium bg-white/30 backdrop-blur-sm dark:border-white/30 dark:text-white hover:bg-white/50 transition"
-        href="#contact">
+      <a class="hidden lg:flex items-center gap-3 px-8 py-2.5 border border-gray-400 rounded-full ml-4 font-medium bg-white/30 backdrop-blur-sm dark:border-white/30 dark:text-white hover:bg-white/50 transition" href="#contact">
         <i class="fas fa-paper-plane"></i>
         Contact
       </a>
 
-      <button
-        class="block md:hidden ml-3 w-10 h-10 rounded-full bg-white/30 backdrop-blur-sm flex items-center justify-center dark:bg-gray-800/50"
-        onclick="openMenu()">
+      <button class="block md:hidden ml-3 w-10 h-10 rounded-full bg-white/30 backdrop-blur-sm flex items-center justify-center dark:bg-gray-800/50" onclick="openMenu()">
         <i class="fas fa-bars dark:text-white"></i>
       </button>
     </div>
 
     <!-- Mobile Menu -->
-    <ul id="sidemenu"
-      class="flex md:hidden flex-col gap-6 py-20 px-10 fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen bg-white/95 backdrop-blur-xl transition-all duration-300 shadow-2xl dark:bg-gray-900/98 dark:backdrop-blur-xl dark:shadow-2xl dark:shadow-purple-900/20">
+    <ul id="sidemenu" class="flex md:hidden flex-col gap-6 py-20 px-10 fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen bg-white/95 backdrop-blur-xl transition-all duration-300 shadow-2xl dark:bg-gray-900/98 dark:backdrop-blur-xl dark:shadow-2xl dark:shadow-purple-900/20">
       <div class="absolute right-6 top-6">
-        <button onclick="closeMenu()"
-          class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition">
+        <button onclick="closeMenu()" class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition">
           <i class="fas fa-times text-gray-700 dark:text-white text-xl"></i>
         </button>
       </div>
       <li class="w-full">
-        <a href="#home" onclick="closeMenu()"
-          class="flex items-center gap-4 text-gray-800 dark:text-white text-lg py-3 px-4 rounded-xl hover:bg-purple-100 dark:hover:bg-purple-900/30 transition w-full">
+        <a href="#home" onclick="closeMenu()" class="flex items-center gap-4 text-gray-800 dark:text-white text-lg py-3 px-4 rounded-xl hover:bg-purple-100 dark:hover:bg-purple-900/30 transition w-full">
           <i class="fas fa-home w-6 text-purple-600"></i>
           <span>Home</span>
         </a>
       </li>
       <li class="w-full">
-        <a href="#about" onclick="closeMenu()"
-          class="flex items-center gap-4 text-gray-800 dark:text-white text-lg py-3 px-4 rounded-xl hover:bg-purple-100 dark:hover:bg-purple-900/30 transition w-full">
+        <a href="#about" onclick="closeMenu()" class="flex items-center gap-4 text-gray-800 dark:text-white text-lg py-3 px-4 rounded-xl hover:bg-purple-100 dark:hover:bg-purple-900/30 transition w-full">
           <i class="fas fa-user w-6 text-purple-600"></i>
           <span>About me</span>
         </a>
       </li>
       <li class="w-full">
-        <a href="#services" onclick="closeMenu()"
-          class="flex items-center gap-4 text-gray-800 dark:text-white text-lg py-3 px-4 rounded-xl hover:bg-purple-100 dark:hover:bg-purple-900/30 transition w-full">
+        <a href="#services" onclick="closeMenu()" class="flex items-center gap-4 text-gray-800 dark:text-white text-lg py-3 px-4 rounded-xl hover:bg-purple-100 dark:hover:bg-purple-900/30 transition w-full">
           <i class="fas fa-cog w-6 text-purple-600"></i>
           <span>Services</span>
         </a>
       </li>
       <li class="w-full">
-        <a href="#work" onclick="closeMenu()"
-          class="flex items-center gap-4 text-gray-800 dark:text-white text-lg py-3 px-4 rounded-xl hover:bg-purple-100 dark:hover:bg-purple-900/30 transition w-full">
+        <a href="#work" onclick="closeMenu()" class="flex items-center gap-4 text-gray-800 dark:text-white text-lg py-3 px-4 rounded-xl hover:bg-purple-100 dark:hover:bg-purple-900/30 transition w-full">
           <i class="fas fa-briefcase w-6 text-purple-600"></i>
           <span>My Work</span>
         </a>
       </li>
       <li class="w-full">
-        <a href="#contact" onclick="closeMenu()"
-          class="flex items-center gap-4 text-gray-800 dark:text-white text-lg py-3 px-4 rounded-xl hover:bg-purple-100 dark:hover:bg-purple-900/30 transition w-full">
+        <a href="#contact" onclick="closeMenu()" class="flex items-center gap-4 text-gray-800 dark:text-white text-lg py-3 px-4 rounded-xl hover:bg-purple-100 dark:hover:bg-purple-900/30 transition w-full">
           <i class="fas fa-envelope w-6 text-purple-600"></i>
           <span>Contact me</span>
         </a>
       </li>
-
+      
       <!-- Mobile menu footer -->
       <li class="absolute bottom-8 left-0 w-full px-10">
         <div class="border-t border-gray-200 dark:border-gray-800 pt-6">
@@ -149,36 +130,32 @@
   <!-- Home Section -->
   <section id="home" class="min-h-screen flex items-center justify-center px-4 pt-20">
     <div class="max-w-4xl text-center">
-      <div class="mb-6" data-aos="fade-down">
+      <div class="mb-6" data-aos="fade-down" data-aos-duration="1000">
         <i class="fas fa-hand-peace text-6xl text-purple-600 animate-wave"></i>
       </div>
-
-      <h3 class="font-serif-display text-5xl md:text-7xl font-semibold mb-4 dark:text-white" data-aos="fade-down">
+      
+      <h3 class="font-serif-display text-5xl md:text-7xl font-semibold mb-4 dark:text-white" data-aos="fade-down" data-aos-duration="1000">
         Hi! I'm Adil Gilani
       </h3>
 
-      <h2 class="font-mono-code text-2xl md:text-3xl text-gray-700 dark:text-gray-200 mb-6" data-aos="fade-up"
-        data-aos-delay="100">
+      <h2 class="font-mono-code text-2xl md:text-3xl text-gray-700 dark:text-gray-200 mb-6" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
         <i class="fas fa-terminal mr-2 text-purple-600"></i>
         Software Engineer
       </h2>
 
-      <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8 leading-relaxed" data-aos="fade-up"
-        data-aos-delay="200">
+      <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8 leading-relaxed" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
         <i class="fas fa-quote-left mr-2 text-purple-600 opacity-50"></i>
         Software Engineer with hands-on experience in Angular, TypeScript, Mean Stack, JavaScript,
         HTML5, CSS3, Asp.net Core Web API, and modern UI frameworks like Tailwind CSS and Bootstrap.
         I specialize in building responsive, accessible, and performance-driven web applications.
       </p>
 
-      <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="zoom-in" data-aos-delay="300">
-        <a href="#contact"
-          class="px-8 py-3 bg-gradient-to-r from-purple-600 to-orange-500 text-white rounded-full font-medium hover:shadow-lg transition flex items-center justify-center gap-2">
+      <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="zoom-in" data-aos-delay="300" data-aos-duration="1000">
+        <a href="#contact" class="px-8 py-3 bg-gradient-to-r from-purple-600 to-orange-500 text-white rounded-full font-medium hover:shadow-lg transition flex items-center justify-center gap-2">
           <i class="fas fa-paper-plane"></i>
           Contact me
         </a>
-        <a href="#"
-          class="px-8 py-3 border border-gray-400 rounded-full font-medium bg-white/50 backdrop-blur-sm dark:bg-gray-800/50 dark:text-white hover:bg-white transition flex items-center justify-center gap-2">
+        <a href="#" class="px-8 py-3 border border-gray-400 rounded-full font-medium bg-white/50 backdrop-blur-sm dark:bg-gray-800/50 dark:text-white hover:bg-white transition flex items-center justify-center gap-2">
           <i class="fas fa-download"></i>
           My Resume
         </a>
@@ -189,16 +166,16 @@
   <!-- About Section -->
   <section id="about" class="py-20 px-4">
     <div class="max-w-6xl mx-auto">
-      <h2 class="font-serif-display text-5xl md:text-6xl text-center mb-16 dark:text-white" data-aos="flip-left">
+      <h2 class="font-serif-display text-5xl md:text-6xl text-center mb-16 dark:text-white" data-aos="flip-left" data-aos-duration="1000">
         <i class="fas fa-user-circle mr-4 text-purple-600"></i>
         About me
       </h2>
 
       <div class="flex flex-col lg:flex-row gap-12 items-center">
         <!-- Profile Image with Icon -->
-        <div class="w-64 h-64 rounded-3xl profile-placeholder shadow-2xl" data-aos="fade-right"></div>
+        <div class="w-64 h-64 rounded-3xl profile-placeholder shadow-2xl" data-aos="fade-right" data-aos-duration="1200"></div>
 
-        <div class="flex-1" data-aos="fade-left">
+        <div class="flex-1" data-aos="fade-left" data-aos-duration="1200">
           <p class="text-lg text-gray-700 dark:text-gray-200 mb-8 leading-relaxed">
             <i class="fas fa-quote-left text-purple-600 mr-2"></i>
             Hi! I'm Adil Gilani, a Software Engineer who loves crafting beautiful, user-friendly,
@@ -209,7 +186,7 @@
 
           <div class="grid sm:grid-cols-2 gap-6">
             <!-- Languages Card -->
-            <div class="glass-card p-6 rounded-xl" data-aos="fade-up" data-aos-delay="100">
+            <div class="glass-card p-6 rounded-xl" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
               <div class="text-3xl mb-4 text-purple-600">
                 <i class="fas fa-laptop-code"></i>
               </div>
@@ -218,25 +195,17 @@
                 Languages & Frameworks
               </h3>
               <p class="text-sm text-gray-600 dark:text-gray-300">
-                <span class="font-mono-code block mb-2">
-                  <i class="fas fa-angle-right mr-2"></i>Frontend:
-                </span>
-                Angular, Angular Material, TypeScript, JavaScript, HTML5, CSS3, SCSS<br>
-
-                <span class="font-mono-code block mt-2 mb-2">
-                  <i class="fas fa-angle-right mr-2"></i>Backend:
-                </span>
-                Node.js, Express.js, RESTful APIs, MongoDB (MEAN Stack)<br>
-
-                <span class="font-mono-code block mt-2 mb-2">
-                  <i class="fas fa-angle-right mr-2"></i>Tools:
-                </span>
-                Git, GitHub, VS Code, npm, Postman
+                <span class="font-mono-code block mb-2"><i class="fas fa-angle-right mr-2"></i>Frontend:</span>
+                Angular, TypeScript, JavaScript, HTML5, CSS3, SCSS<br>
+                <span class="font-mono-code block mt-2 mb-2"><i class="fas fa-angle-right mr-2"></i>Backend:</span>
+                ASP.NET Core, Node.js, RESTful APIs<br>
+                <span class="font-mono-code block mt-2 mb-2"><i class="fas fa-angle-right mr-2"></i>Tools:</span>
+                Git, VS Code, npm
               </p>
             </div>
 
             <!-- Education Card -->
-            <div class="glass-card p-6 rounded-xl" data-aos="fade-up" data-aos-delay="200">
+            <div class="glass-card p-6 rounded-xl" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
               <div class="text-3xl mb-4 text-purple-600">
                 <i class="fas fa-graduation-cap"></i>
               </div>
@@ -245,43 +214,31 @@
                 Education
               </h3>
               <p class="text-sm text-gray-600 dark:text-gray-300">
-                <span class="font-mono-code block mb-2"><i class="fas fa-angle-right mr-2"></i>Bachelors in Computer
-                  Software Engineering</span>
+                <span class="font-mono-code block mb-2"><i class="fas fa-angle-right mr-2"></i>Bachelors in Computer Software Engineering</span>
                 Foundation University Islamabad
               </p>
             </div>
           </div>
 
-          <h4 class="text-2xl font-serif-display text-center mt-12 mb-6 dark:text-white">
+          <h4 class="text-2xl font-serif-display text-center mt-12 mb-6 dark:text-white" data-aos="fade-up" data-aos-delay="300">
             <i class="fas fa-tools mr-2 text-purple-600"></i>
             Tools I use
           </h4>
-
+          
           <!-- Tools Grid -->
           <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-7 gap-4 max-w-3xl mx-auto">
-            <div class="tool-icon group" title="VS Code"><i class="fab fa-microsoft"></i><span class="tooltip">VS
-                Code</span></div>
-            <div class="tool-icon group" title="MongoDB"><i class="fas fa-database"></i><span
-                class="tooltip">MongoDB,MySQL,MS SQL</span></div>
-            <div class="tool-icon group" title="Postman"><i class="fas fa-paper-plane"></i><span
-                class="tooltip">Postman</span></div>
-            <div class="tool-icon group" title="Figma"><i class="fab fa-figma"></i><span class="tooltip">Figma</span>
-            </div>
-            <div class="tool-icon group" title="Adobe Photoshop"><i class="fas fa-image"></i><span
-                class="tooltip">Photoshop</span></div>
-            <div class="tool-icon group" title="Adobe Illustrator"><i class="fas fa-paint-brush"></i><span
-                class="tooltip">Illustrator</span></div>
-            <div class="tool-icon group" title="Adobe XD"><i class="fas fa-pencil-ruler"></i><span class="tooltip">Adobe
-                XD</span></div>
-            <div class="tool-icon group" title="Git"><i class="fab fa-git-alt"></i><span class="tooltip">Git</span>
-            </div>
-            <div class="tool-icon group" title="GitHub"><i class="fab fa-github"></i><span class="tooltip">GitHub</span>
-            </div>
-            <div class="tool-icon group" title="Node.js"><i class="fab fa-node"></i><span class="tooltip">Node.js</span>
-            </div>
-            <div class="tool-icon group" title="npm"><i class="fab fa-npm"></i><span class="tooltip">npm</span></div>
-            <div class="tool-icon group" title="Angular"><i class="fab fa-angular"></i><span
-                class="tooltip">Angular</span></div>
+            <div class="tool-icon group" title="VS Code" data-aos="zoom-in" data-aos-delay="50"><i class="fab fa-microsoft"></i><span class="tooltip">VS Code</span></div>
+            <div class="tool-icon group" title="MongoDB" data-aos="zoom-in" data-aos-delay="100"><i class="fas fa-database"></i><span class="tooltip">MongoDB,MySQL,MS SQL</span></div>
+            <div class="tool-icon group" title="Postman" data-aos="zoom-in" data-aos-delay="150"><i class="fas fa-paper-plane"></i><span class="tooltip">Postman</span></div>
+            <div class="tool-icon group" title="Figma" data-aos="zoom-in" data-aos-delay="200"><i class="fab fa-figma"></i><span class="tooltip">Figma</span></div>
+            <div class="tool-icon group" title="Adobe Photoshop" data-aos="zoom-in" data-aos-delay="250"><i class="fas fa-image"></i><span class="tooltip">Photoshop</span></div>
+            <div class="tool-icon group" title="Adobe Illustrator" data-aos="zoom-in" data-aos-delay="300"><i class="fas fa-paint-brush"></i><span class="tooltip">Illustrator</span></div>
+            <div class="tool-icon group" title="Adobe XD" data-aos="zoom-in" data-aos-delay="350"><i class="fas fa-pencil-ruler"></i><span class="tooltip">Adobe XD</span></div>
+            <div class="tool-icon group" title="Git" data-aos="zoom-in" data-aos-delay="400"><i class="fab fa-git-alt"></i><span class="tooltip">Git</span></div>
+            <div class="tool-icon group" title="GitHub" data-aos="zoom-in" data-aos-delay="450"><i class="fab fa-github"></i><span class="tooltip">GitHub</span></div>
+            <div class="tool-icon group" title="Node.js" data-aos="zoom-in" data-aos-delay="500"><i class="fab fa-node"></i><span class="tooltip">Node.js</span></div>
+            <div class="tool-icon group" title="npm" data-aos="zoom-in" data-aos-delay="550"><i class="fab fa-npm"></i><span class="tooltip">npm</span></div>
+            <div class="tool-icon group" title="Angular" data-aos="zoom-in" data-aos-delay="600"><i class="fab fa-angular"></i><span class="tooltip">Angular</span></div>
           </div>
         </div>
       </div>
@@ -291,38 +248,32 @@
   <!-- Services Section -->
   <section id="services" class="py-20 px-4">
     <div class="max-w-6xl mx-auto">
-      <h2 class="font-serif-display text-5xl md:text-6xl text-center mb-6 dark:text-white" data-aos="zoom-out">
+      <h2 class="font-serif-display text-5xl md:text-6xl text-center mb-6 dark:text-white" data-aos="zoom-out" data-aos-duration="1000">
         <i class="fas fa-cogs mr-4 text-purple-600"></i>
         My services
       </h2>
-
-      <p class="text-center text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-12" data-aos="fade-up">
+      
+      <p class="text-center text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-12" data-aos="fade-up" data-aos-duration="1000">
         <i class="fas fa-quote-left mr-2 text-purple-600"></i>
         Experienced Software Engineer skilled in building responsive, high-performance,
         and user-centric web applications using modern technologies.
       </p>
 
       <div class="grid md:grid-cols-3 gap-8">
-        <div class="glass-card p-8 rounded-2xl hover:-translate-y-2 transition-all cursor-pointer group"
-          data-aos="fade-right">
+        <div class="glass-card p-8 rounded-2xl hover:-translate-y-2 transition-all cursor-pointer group" data-aos="fade-right" data-aos-delay="100" data-aos-duration="1000">
           <div class="text-4xl mb-4 text-purple-600"><i class="fas fa-globe"></i></div>
           <h3 class="text-2xl font-serif-display font-semibold mb-3 dark:text-white">Web Development</h3>
-          <p class="text-gray-600 dark:text-gray-300">Full-stack web applications using MEAN stack, and modern
-            frameworks.</p>
+          <p class="text-gray-600 dark:text-gray-300">Full-stack web applications using MEAN stack, ASP.NET Core, and modern frameworks.</p>
         </div>
-        <div class="glass-card p-8 rounded-2xl hover:-translate-y-2 transition-all cursor-pointer group"
-          data-aos="fade-up">
+        <div class="glass-card p-8 rounded-2xl hover:-translate-y-2 transition-all cursor-pointer group" data-aos="fade-up" data-aos-delay="150" data-aos-duration="1000">
           <div class="text-4xl mb-4 text-purple-600"><i class="fas fa-paint-brush"></i></div>
           <h3 class="text-2xl font-serif-display font-semibold mb-3 dark:text-white">Graphics Design</h3>
-          <p class="text-gray-600 dark:text-gray-300">Logo designing, banners, and social media posts with Adobe
-            Creative Suite.</p>
+          <p class="text-gray-600 dark:text-gray-300">Logo designing, banners, and social media posts with Adobe Creative Suite.</p>
         </div>
-        <div class="glass-card p-8 rounded-2xl hover:-translate-y-2 transition-all cursor-pointer group"
-          data-aos="fade-left">
+        <div class="glass-card p-8 rounded-2xl hover:-translate-y-2 transition-all cursor-pointer group" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
           <div class="text-4xl mb-4 text-purple-600"><i class="fas fa-mobile-alt"></i></div>
           <h3 class="text-2xl font-serif-display font-semibold mb-3 dark:text-white">UI/UX Design</h3>
-          <p class="text-gray-600 dark:text-gray-300">User-friendly digital experiences using Figma, Adobe XD, and
-            design principles.</p>
+          <p class="text-gray-600 dark:text-gray-300">User-friendly digital experiences using Figma, Adobe XD, and design principles.</p>
         </div>
       </div>
     </div>
@@ -331,13 +282,13 @@
   <!-- Work Section -->
   <section id="work" class="py-20 px-4">
     <div class="max-w-6xl mx-auto">
-      <h2 class="font-serif-display text-5xl md:text-6xl text-center mb-12 dark:text-white" data-aos="fade-down">
+      <h2 class="font-serif-display text-5xl md:text-6xl text-center mb-12 dark:text-white" data-aos="fade-down" data-aos-duration="1000">
         <i class="fas fa-briefcase mr-4 text-purple-600"></i>
         My Latest Work
       </h2>
 
       <div id="work-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Projects will be injected here -->
+        <!-- Projects will be injected here with AOS attributes -->
       </div>
     </div>
   </section>
@@ -345,35 +296,35 @@
   <!-- Contact Section -->
   <section id="contact" class="py-20 px-4">
     <div class="max-w-2xl mx-auto">
-      <h2 class="font-serif-display text-5xl md:text-6xl text-center mb-12 dark:text-white" data-aos="flip-up">
+      <h2 class="font-serif-display text-5xl md:text-6xl text-center mb-12 dark:text-white" data-aos="flip-up" data-aos-duration="1000">
         <i class="fas fa-envelope mr-4 text-purple-600"></i>
         Get in Touch
       </h2>
 
-      <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6" data-aos="fade-up">
+      <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
         <input type="hidden" name="access_key" value="3874e084-3234-4679-ac25-25d29dbdc529">
-
+        
         <div class="grid md:grid-cols-2 gap-6">
           <div class="relative">
             <i class="fas fa-user absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
             <input type="text" name="name" placeholder="Your Name" required
-              class="w-full p-4 pl-12 rounded-xl border border-gray-300 bg-white/70 backdrop-blur-sm dark:bg-gray-800/50 dark:border-gray-600 dark:text-white">
+                   class="w-full p-4 pl-12 rounded-xl border border-gray-300 bg-white/70 backdrop-blur-sm dark:bg-gray-800/50 dark:border-gray-600 dark:text-white">
           </div>
           <div class="relative">
             <i class="fas fa-envelope absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
             <input type="email" name="email" placeholder="Your Email" required
-              class="w-full p-4 pl-12 rounded-xl border border-gray-300 bg-white/70 backdrop-blur-sm dark:bg-gray-800/50 dark:border-gray-600 dark:text-white">
+                   class="w-full p-4 pl-12 rounded-xl border border-gray-300 bg-white/70 backdrop-blur-sm dark:bg-gray-800/50 dark:border-gray-600 dark:text-white">
           </div>
         </div>
-
+        
         <div class="relative">
           <i class="fas fa-pencil-alt absolute left-4 top-6 text-gray-400"></i>
           <textarea name="message" rows="5" placeholder="Your Message" required
-            class="w-full p-4 pl-12 rounded-xl border border-gray-300 bg-white/70 backdrop-blur-sm dark:bg-gray-800/50 dark:border-gray-600 dark:text-white"></textarea>
+                    class="w-full p-4 pl-12 rounded-xl border border-gray-300 bg-white/70 backdrop-blur-sm dark:bg-gray-800/50 dark:border-gray-600 dark:text-white"></textarea>
         </div>
-
-        <button type="submit"
-          class="px-10 py-3 bg-gradient-to-r from-purple-600 to-orange-500 text-white rounded-full mx-auto block hover:shadow-lg transition font-medium flex items-center gap-2">
+        
+        <button type="submit" 
+                class="px-10 py-3 bg-gradient-to-r from-purple-600 to-orange-500 text-white rounded-full mx-auto block hover:shadow-lg transition font-medium flex items-center gap-2">
           <i class="fas fa-paper-plane"></i>
           Send Message
         </button>
@@ -401,21 +352,18 @@
             <i class="far fa-copyright"></i> 2025 Adil Gilani. All rights reserved.
           </p>
           <ul class="flex gap-8">
-            <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-purple-600 transition"><i
-                  class="fab fa-instagram mr-2"></i>Instagram</a></li>
-            <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-purple-600 transition"><i
-                  class="fab fa-github mr-2"></i>GitHub</a></li>
-            <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-purple-600 transition"><i
-                  class="fab fa-linkedin mr-2"></i>LinkedIn</a></li>
+            <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-purple-600 transition"><i class="fab fa-instagram mr-2"></i>Instagram</a></li>
+            <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-purple-600 transition"><i class="fab fa-github mr-2"></i>GitHub</a></li>
+            <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-purple-600 transition"><i class="fab fa-linkedin mr-2"></i>LinkedIn</a></li>
           </ul>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- AOS Script -->
+  <!-- AOS Script - Load this first -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <!-- Custom JavaScript -->
+  <!-- Custom JavaScript - Load these after AOS -->
   <script src="js/script.js"></script>
   <script src="js/projects.js"></script>
 </body>
