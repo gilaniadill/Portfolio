@@ -38,7 +38,7 @@ const works = [
   },
 ];
 
-// Function to create project cards with black text and animations
+// Function to create project cards with proper dark mode text colors
 function renderProjects() {
   const container = document.getElementById("work-container");
   if (!container) return;
@@ -58,16 +58,16 @@ function renderProjects() {
     card.setAttribute("data-aos-mirror", "true");
     card.setAttribute("data-aos-once", "false");
     
-    // Card HTML structure with black text
+    // Card HTML structure with proper text colors for both modes
     card.innerHTML = `
       <a href="${work.link}" target="_blank" rel="noopener noreferrer" class="block w-full h-full">
         <div class="project-overlay">
           <div>
-            <h2 class="font-semibold text-black">${work.title}</h2>
-            <p class="text-sm text-black">${work.description}</p>
+            <h2 class="font-semibold text-black dark:text-white">${work.title}</h2>
+            <p class="text-sm text-black dark:text-gray-200">${work.description}</p>
           </div>
           <div class="project-link">
-            <i class="fas fa-arrow-right text-black"></i>
+            <i class="fas fa-arrow-right text-black dark:text-white"></i>
           </div>
         </div>
       </a>

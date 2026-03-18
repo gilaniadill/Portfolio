@@ -381,7 +381,7 @@ nav {
   bottom: -40px;
 }
 
-/* Project cards */
+/* Project cards - UPDATED for dark mode visibility */
 .project-card {
   aspect-ratio: 1;
   background-size: cover;
@@ -413,11 +413,43 @@ nav {
   justify-content: space-between;
   transition: all 0.3s ease;
   backdrop-filter: blur(4px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Dark mode project overlay - FIXED for better visibility */
 .dark .project-overlay {
-  background: rgba(20, 25, 40, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(30, 35, 50, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Project title in dark mode - now visible */
+.dark .project-overlay h2 {
+  color: #ffffff !important;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Project description in dark mode - now visible */
+.dark .project-overlay p {
+  color: #e0e0e0 !important;
+  font-weight: 400;
+}
+
+/* Project link button in dark mode */
+.dark .project-link {
+  border-color: #ffffff;
+  box-shadow: 2px 2px 0 #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.dark .project-link i {
+  color: #ffffff !important;
+}
+
+.dark .project-link:hover {
+  background: #3b82f6;
+  border-color: #3b82f6;
 }
 
 .project-card:hover .project-overlay {
@@ -434,19 +466,16 @@ nav {
   justify-content: center;
   box-shadow: 2px 2px 0 #000;
   transition: all 0.3s ease;
+  background: white;
 }
 
-.dark .project-link {
-  border-color: #fff;
-  box-shadow: 2px 2px 0 #fff;
+.project-link i {
+  color: #000;
+  font-size: 1rem;
 }
 
 .project-link:hover {
   background: #d9f99d;
-}
-
-.dark .project-link:hover {
-  background: #3b82f6;
 }
 
 /* Additional animations */
@@ -459,6 +488,17 @@ nav {
 .animate-wave {
   animation: wave 2s infinite;
   display: inline-block;
+}
+
+/* Ensure content is visible */
+section {
+  position: relative;
+  z-index: 1;
+}
+
+/* Dark mode styles */
+.dark .glass-card {
+  background-color: rgba(17, 24, 39, 0.7);
 }
 
 /* Mobile menu adjustments - Improved dark mode */
@@ -488,9 +528,22 @@ nav {
     min-height: 44px;
     min-width: 44px;
   }
+  
+  /* Mobile project overlay adjustments */
+  .project-overlay {
+    padding: 0.75rem 1rem;
+  }
+  
+  .dark .project-overlay h2 {
+    font-size: 0.95rem;
+  }
+  
+  .dark .project-overlay p {
+    font-size: 0.7rem;
+  }
 }
 
-/* Project cards - with black text */
+/* Project cards - with proper text colors for both modes */
 .group:hover .group-hover\:bottom-7 {
   bottom: 1.75rem;
 }
@@ -499,9 +552,13 @@ nav {
   background-color: #d9f99d;
 }
 
-/* Force black text for project titles and descriptions */
+/* Force proper text colors for project titles and descriptions */
 .text-black {
   color: #000000 !important;
+}
+
+.dark .text-black {
+  color: #ffffff !important; /* Override for dark mode */
 }
 
 /* Mobile menu link hover effects */
