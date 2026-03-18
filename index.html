@@ -19,250 +19,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
+  <link rel="icon" type="image/x-icon" href="images/title.png">
   <title>Adil Gilani - Software Engineer</title>
+  <link rel="stylesheet" href="css/style.css">
 
-  <style>
-    /* Font assignments */
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      transition: background-color 0.3s ease;
-    }
-    
-    .font-serif-display {
-      font-family: 'Cormorant Garamond', serif;
-    }
-    
-    .font-mono-code {
-      font-family: 'JetBrains Mono', monospace;
-    }
-    
-    /* Animated gradient background */
-    .gradient-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -2;
-      background: linear-gradient(-45deg, #f0f4ff, #e6ecfe, #f5f0ff, #e8f0fe);
-      background-size: 400% 400%;
-      animation: gradientShift 15s ease infinite;
-    }
-    
-    .dark .gradient-bg {
-      background: linear-gradient(-45deg, #0b0f17, #141b2b, #1a1f30, #0f172a);
-      background-size: 400% 400%;
-    }
-    
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    
-    /* Floating orbs */
-    .orb {
-      position: fixed;
-      width: 50vmax;
-      height: 50vmax;
-      border-radius: 50%;
-      background: radial-gradient(circle at 30% 30%, rgba(120, 160, 255, 0.15), transparent 70%);
-      z-index: -1;
-      pointer-events: none;
-      animation: float 20s infinite alternate ease-in-out;
-    }
-    
-    .dark .orb {
-      background: radial-gradient(circle at 30% 30%, rgba(70, 110, 200, 0.1), transparent 70%);
-    }
-    
-    .orb-1 {
-      top: -10%;
-      left: -10%;
-      animation: float1 25s infinite alternate;
-    }
-    
-    .orb-2 {
-      bottom: -10%;
-      right: -10%;
-      width: 60vmax;
-      height: 60vmax;
-      background: radial-gradient(circle at 70% 70%, rgba(200, 160, 255, 0.15), transparent 70%);
-      animation: float2 30s infinite alternate;
-    }
-    
-    @keyframes float1 {
-      0% { transform: translate(0, 0) scale(1); }
-      100% { transform: translate(5%, 8%) scale(1.1); }
-    }
-    
-    @keyframes float2 {
-      0% { transform: translate(0, 0) scale(1); }
-      100% { transform: translate(-8%, -5%) scale(1.15); }
-    }
-    
-    /* Navigation */
-    nav {
-      backdrop-filter: blur(10px);
-      background-color: rgba(255, 255, 255, 0.8);
-      transition: background-color 0.3s ease;
-    }
-    
-    .dark nav {
-      background-color: rgba(10, 15, 25, 0.9);
-    }
-    
-    /* Glass cards */
-    .glass-card {
-      backdrop-filter: blur(8px);
-      background-color: rgba(255, 255, 255, 0.7);
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      transition: all 0.3s ease;
-    }
-    
-    .dark .glass-card {
-      background-color: rgba(20, 25, 40, 0.7);
-      border-color: rgba(255, 255, 255, 0.1);
-    }
-    
-    /* Dark mode text colors */
-    .dark, .dark * {
-      color-scheme: dark;
-    }
-    
-    .dark p, .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6, .dark li, .dark a:not(.dark\:text-black) {
-      color: #ffffff;
-    }
-    
-    .dark .text-gray-600, .dark .text-gray-700, .dark .text-gray-800 {
-      color: #e5e7eb !important;
-    }
-    
-    /* Placeholder color for dark mode */
-    .dark input::placeholder, .dark textarea::placeholder {
-      color: #9ca3af !important;
-    }
-    
-    /* Smooth scrolling */
-    html {
-      scroll-behavior: smooth;
-    }
-    
-    /* Mobile menu */
-    #sidemenu {
-      transition: right 0.3s ease-in-out;
-    }
-
-    /* Profile image placeholder */
-    .profile-placeholder {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .profile-placeholder::after {
-      content: '👨‍💻';
-      font-size: 5rem;
-      filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));
-    }
-
-    /* Tool icons */
-    .tool-icon {
-      width: 3rem;
-      height: 3rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 0.75rem;
-      font-size: 1.5rem;
-      color: #4a5568;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-
-    .dark .tool-icon {
-      color: #fff;
-    }
-
-    .tool-icon:hover {
-      transform: translateY(-5px);
-      background: rgba(255, 255, 255, 0.3);
-    }
-
-    /* Project cards */
-    .project-card {
-      aspect-ratio: 1;
-      background-size: cover;
-      background-position: center;
-      border-radius: 0.75rem;
-      position: relative;
-      cursor: pointer;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-
-    .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
-    }
-
-    .project-overlay {
-      background: rgba(255, 255, 255, 0.95);
-      width: 90%;
-      border-radius: 0.75rem;
-      position: absolute;
-      bottom: 1.25rem;
-      left: 50%;
-      transform: translateX(-50%);
-      padding: 1rem 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: all 0.3s ease;
-      backdrop-filter: blur(4px);
-    }
-
-    .dark .project-overlay {
-      background: rgba(20, 25, 40, 0.95);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .project-card:hover .project-overlay {
-      bottom: 1.75rem;
-    }
-
-    .project-link {
-      width: 2.5rem;
-      height: 2.5rem;
-      border: 1px solid #000;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 2px 2px 0 #000;
-      transition: all 0.3s ease;
-    }
-
-    .dark .project-link {
-      border-color: #fff;
-      box-shadow: 2px 2px 0 #fff;
-    }
-
-    .project-link:hover {
-      background: #d9f99d;
-    }
-
-    .dark .project-link:hover {
-      background: #3b82f6;
-    }
-  </style>
 </head>
 
 <body class="overflow-x-hidden antialiased">
@@ -306,16 +66,63 @@
       </button>
     </div>
 
-    <!-- Mobile Menu -->
-    <ul id="sidemenu" class="flex md:hidden flex-col gap-6 py-20 px-10 fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen bg-white/90 backdrop-blur-xl transition-all duration-300 dark:bg-gray-900/95">
+    <!-- Mobile Menu - Updated with proper dark mode background -->
+    <ul id="sidemenu" class="flex md:hidden flex-col gap-6 py-20 px-10 fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen bg-white/95 backdrop-blur-xl transition-all duration-300 shadow-2xl dark:bg-gray-900/98 dark:backdrop-blur-xl dark:shadow-2xl dark:shadow-purple-900/20">
       <div class="absolute right-6 top-6">
-        <button onclick="closeMenu()" class="text-2xl dark:text-white"><i class="fas fa-times"></i></button>
+        <button onclick="closeMenu()" class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition">
+          <i class="fas fa-times text-gray-700 dark:text-white text-xl"></i>
+        </button>
       </div>
-      <li><a href="#home" onclick="closeMenu()" class="dark:text-white text-lg"><i class="fas fa-home mr-3"></i>Home</a></li>
-      <li><a href="#about" onclick="closeMenu()" class="dark:text-white text-lg"><i class="fas fa-user mr-3"></i>About me</a></li>
-      <li><a href="#services" onclick="closeMenu()" class="dark:text-white text-lg"><i class="fas fa-cog mr-3"></i>Services</a></li>
-      <li><a href="#work" onclick="closeMenu()" class="dark:text-white text-lg"><i class="fas fa-briefcase mr-3"></i>My Work</a></li>
-      <li><a href="#contact" onclick="closeMenu()" class="dark:text-white text-lg"><i class="fas fa-envelope mr-3"></i>Contact me</a></li>
+      <li class="w-full">
+        <a href="#home" onclick="closeMenu()" class="flex items-center gap-4 text-gray-800 dark:text-white text-lg py-3 px-4 rounded-xl hover:bg-purple-100 dark:hover:bg-purple-900/30 transition w-full">
+          <i class="fas fa-home w-6 text-purple-600"></i>
+          <span>Home</span>
+        </a>
+      </li>
+      <li class="w-full">
+        <a href="#about" onclick="closeMenu()" class="flex items-center gap-4 text-gray-800 dark:text-white text-lg py-3 px-4 rounded-xl hover:bg-purple-100 dark:hover:bg-purple-900/30 transition w-full">
+          <i class="fas fa-user w-6 text-purple-600"></i>
+          <span>About me</span>
+        </a>
+      </li>
+      <li class="w-full">
+        <a href="#services" onclick="closeMenu()" class="flex items-center gap-4 text-gray-800 dark:text-white text-lg py-3 px-4 rounded-xl hover:bg-purple-100 dark:hover:bg-purple-900/30 transition w-full">
+          <i class="fas fa-cog w-6 text-purple-600"></i>
+          <span>Services</span>
+        </a>
+      </li>
+      <li class="w-full">
+        <a href="#work" onclick="closeMenu()" class="flex items-center gap-4 text-gray-800 dark:text-white text-lg py-3 px-4 rounded-xl hover:bg-purple-100 dark:hover:bg-purple-900/30 transition w-full">
+          <i class="fas fa-briefcase w-6 text-purple-600"></i>
+          <span>My Work</span>
+        </a>
+      </li>
+      <li class="w-full">
+        <a href="#contact" onclick="closeMenu()" class="flex items-center gap-4 text-gray-800 dark:text-white text-lg py-3 px-4 rounded-xl hover:bg-purple-100 dark:hover:bg-purple-900/30 transition w-full">
+          <i class="fas fa-envelope w-6 text-purple-600"></i>
+          <span>Contact me</span>
+        </a>
+      </li>
+      
+      <!-- Mobile menu footer -->
+      <li class="absolute bottom-8 left-0 w-full px-10">
+        <div class="border-t border-gray-200 dark:border-gray-800 pt-6">
+          <div class="flex items-center justify-center gap-4">
+            <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-purple-600 transition text-xl">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-purple-600 transition text-xl">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-purple-600 transition text-xl">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+          <p class="text-xs text-gray-500 dark:text-gray-500 text-center mt-4">
+            © 2025 Adil Gilani
+          </p>
+        </div>
+      </li>
     </ul>
   </nav>
 
@@ -389,6 +196,8 @@
               <p class="text-sm text-gray-600 dark:text-gray-300">
                 <span class="font-mono-code block mb-2"><i class="fas fa-angle-right mr-2"></i>Frontend:</span>
                 Angular, TypeScript, JavaScript, HTML5, CSS3, SCSS<br>
+                <span class="font-mono-code block mt-2 mb-2"><i class="fas fa-angle-right mr-2"></i>Backend:</span>
+                ASP.NET Core, Node.js, RESTful APIs<br>
                 <span class="font-mono-code block mt-2 mb-2"><i class="fas fa-angle-right mr-2"></i>Tools:</span>
                 Git, VS Code, npm
               </p>
@@ -415,14 +224,20 @@
             Tools I use
           </h4>
           
-          <div class="grid grid-cols-4 sm:grid-cols-7 gap-4 max-w-lg mx-auto">
-            <div class="tool-icon"><i class="fab fa-microsoft"></i></div>
-            <div class="tool-icon"><i class="fas fa-database"></i></div>
-            <div class="tool-icon"><i class="fas fa-code"></i></div>
-            <div class="tool-icon"><i class="fas fa-paint-brush"></i></div>
-            <div class="tool-icon"><i class="fas fa-image"></i></div>
-            <div class="tool-icon"><i class="fab fa-figma"></i></div>
-            <div class="tool-icon"><i class="fab fa-git-alt"></i></div>
+          <!-- Tools Grid -->
+          <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-7 gap-4 max-w-3xl mx-auto">
+            <div class="tool-icon group" title="VS Code"><i class="fab fa-microsoft"></i><span class="tooltip">VS Code</span></div>
+            <div class="tool-icon group" title="MongoDB"><i class="fas fa-database"></i><span class="tooltip">MongoDB,MySQL,MS SQL</span></div>
+            <div class="tool-icon group" title="Postman"><i class="fas fa-paper-plane"></i><span class="tooltip">Postman</span></div>
+            <div class="tool-icon group" title="Figma"><i class="fab fa-figma"></i><span class="tooltip">Figma</span></div>
+            <div class="tool-icon group" title="Adobe Photoshop"><i class="fas fa-image"></i><span class="tooltip">Photoshop</span></div>
+            <div class="tool-icon group" title="Adobe Illustrator"><i class="fas fa-paint-brush"></i><span class="tooltip">Illustrator</span></div>
+            <div class="tool-icon group" title="Adobe XD"><i class="fas fa-pencil-ruler"></i><span class="tooltip">Adobe XD</span></div>
+            <div class="tool-icon group" title="Git"><i class="fab fa-git-alt"></i><span class="tooltip">Git</span></div>
+            <div class="tool-icon group" title="GitHub"><i class="fab fa-github"></i><span class="tooltip">GitHub</span></div>
+            <div class="tool-icon group" title="Node.js"><i class="fab fa-node"></i><span class="tooltip">Node.js</span></div>
+            <div class="tool-icon group" title="npm"><i class="fab fa-npm"></i><span class="tooltip">npm</span></div>
+            <div class="tool-icon group" title="Angular"><i class="fab fa-angular"></i><span class="tooltip">Angular</span></div>
           </div>
         </div>
       </div>
@@ -444,52 +259,26 @@
       </p>
 
       <div class="grid md:grid-cols-3 gap-8">
-        <!-- Web Development -->
         <div class="glass-card p-8 rounded-2xl hover:-translate-y-2 transition-all cursor-pointer group" data-aos="fade-right">
-          <div class="text-4xl mb-4 text-purple-600">
-            <i class="fas fa-globe"></i>
-          </div>
-          <h3 class="text-2xl font-serif-display font-semibold mb-3 dark:text-white flex items-center gap-2">
-            <i class="fas fa-code text-sm"></i>
-            Web Development
-          </h3>
-          <p class="text-gray-600 dark:text-gray-300">
-            Develop and maintain scalable web applications with clean front-end interfaces and efficient back-end services.
-          </p>
+          <div class="text-4xl mb-4 text-purple-600"><i class="fas fa-globe"></i></div>
+          <h3 class="text-2xl font-serif-display font-semibold mb-3 dark:text-white">Web Development</h3>
+          <p class="text-gray-600 dark:text-gray-300">Full-stack web applications using MEAN stack, ASP.NET Core, and modern frameworks.</p>
         </div>
-
-        <!-- Graphics Design -->
         <div class="glass-card p-8 rounded-2xl hover:-translate-y-2 transition-all cursor-pointer group" data-aos="fade-up">
-          <div class="text-4xl mb-4 text-purple-600">
-            <i class="fas fa-paint-brush"></i>
-          </div>
-          <h3 class="text-2xl font-serif-display font-semibold mb-3 dark:text-white flex items-center gap-2">
-            <i class="fas fa-palette"></i>
-            Graphics Design
-          </h3>
-          <p class="text-gray-600 dark:text-gray-300">
-            Logo designing, banners, and social media posts with creative and modern aesthetic.
-          </p>
+          <div class="text-4xl mb-4 text-purple-600"><i class="fas fa-paint-brush"></i></div>
+          <h3 class="text-2xl font-serif-display font-semibold mb-3 dark:text-white">Graphics Design</h3>
+          <p class="text-gray-600 dark:text-gray-300">Logo designing, banners, and social media posts with Adobe Creative Suite.</p>
         </div>
-
-        <!-- UI/UX Design -->
         <div class="glass-card p-8 rounded-2xl hover:-translate-y-2 transition-all cursor-pointer group" data-aos="fade-left">
-          <div class="text-4xl mb-4 text-purple-600">
-            <i class="fas fa-mobile-alt"></i>
-          </div>
-          <h3 class="text-2xl font-serif-display font-semibold mb-3 dark:text-white flex items-center gap-2">
-            <i class="fas fa-draw-polygon"></i>
-            UI/UX Design
-          </h3>
-          <p class="text-gray-600 dark:text-gray-300">
-            Creating visually appealing and user-friendly digital experiences that meet your business goals.
-          </p>
+          <div class="text-4xl mb-4 text-purple-600"><i class="fas fa-mobile-alt"></i></div>
+          <h3 class="text-2xl font-serif-display font-semibold mb-3 dark:text-white">UI/UX Design</h3>
+          <p class="text-gray-600 dark:text-gray-300">User-friendly digital experiences using Figma, Adobe XD, and design principles.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Work Section - Projects will be injected here -->
+  <!-- Work Section - Projects with black text -->
   <section id="work" class="py-20 px-4">
     <div class="max-w-6xl mx-auto">
       <h2 class="font-serif-display text-5xl md:text-6xl text-center mb-12 dark:text-white" data-aos="fade-down">
@@ -498,7 +287,7 @@
       </h2>
 
       <div id="work-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Projects will be injected here by JavaScript -->
+        <!-- Projects will be injected here -->
       </div>
     </div>
   </section>
@@ -548,9 +337,7 @@
       <div class="text-center mb-8">
         <div class="flex items-center justify-center gap-2 text-3xl font-serif-display font-bold mb-4">
           <i class="fas fa-code text-purple-600"></i>
-          <span class="bg-gradient-to-r from-purple-600 to-orange-500 text-transparent bg-clip-text">
-            Adil Gilani
-          </span>
+          <span class="bg-gradient-to-r from-purple-600 to-orange-500 text-transparent bg-clip-text">Adil Gilani</span>
         </div>
         <div class="flex items-center justify-center gap-2 text-sm glass-card w-max mx-auto px-6 py-3 rounded-full">
           <i class="fas fa-envelope text-purple-600"></i>
@@ -561,8 +348,7 @@
       <div class="border-t border-gray-300 dark:border-gray-700 pt-8">
         <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
           <p class="text-gray-600 dark:text-gray-300 flex items-center gap-2">
-            <i class="far fa-copyright"></i>
-            2025 Adil Gilani. All rights reserved.
+            <i class="far fa-copyright"></i> 2025 Adil Gilani. All rights reserved.
           </p>
           <ul class="flex gap-8">
             <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-purple-600 transition"><i class="fab fa-instagram mr-2"></i>Instagram</a></li>
@@ -575,8 +361,14 @@
   </footer>
 
   <script>
-    // Your projects data
+    // Your updated projects data with the new School Management System project
     const works = [
+      {
+        title: "School Management System",
+        description: "Management System for Schools (Mean Stack)",
+        image: "./images/sms.png",
+        link: "https://gilaniadill.github.io/sms",
+      },
       {
         title: "Buraq Studio",
         description: "Company Website",
@@ -609,7 +401,7 @@
       },
     ];
     
-    // Function to create project cards
+    // Function to create project cards with black text
     function renderProjects() {
       const container = document.getElementById("work-container");
       if (!container) return;
@@ -618,23 +410,23 @@
       
       works.forEach((work, index) => {
         const card = document.createElement("div");
-        card.className = "project-card";
+        card.className = "aspect-square bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group";
+        card.style.backgroundImage = `url('${work.image}')`;
+        
+        // Add AOS attributes
         card.setAttribute("data-aos", "zoom-in");
         card.setAttribute("data-aos-delay", (index * 100).toString());
         
-        // Set background image with fallback
-        card.style.backgroundImage = `url('${work.image}')`;
-        
-        // Add error handling for images
+        // Your exact card HTML structure with black text
         card.innerHTML = `
           <a href="${work.link}" target="_blank" class="block w-full h-full">
-            <div class="project-overlay">
+            <div class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7 shadow-lg">
               <div>
-                <h3 class="font-semibold text-gray-900 dark:text-white">${work.title}</h3>
-                <p class="text-sm text-gray-600 dark:text-gray-300">${work.description}</p>
+                <h2 class="font-semibold text-black">${work.title}</h2>
+                <p class="text-sm text-black">${work.description}</p>
               </div>
-              <div class="project-link">
-                <i class="fas fa-arrow-right text-gray-900 dark:text-white"></i>
+              <div class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
+                <i class="fas fa-arrow-right text-black"></i>
               </div>
             </div>
           </a>
@@ -645,11 +437,6 @@
         img.src = work.image;
         img.onerror = function() {
           card.style.backgroundImage = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
-          // Add a fallback icon
-          const iconOverlay = document.createElement('div');
-          iconOverlay.className = 'absolute inset-0 flex items-center justify-center';
-          iconOverlay.innerHTML = '<i class="fas fa-code text-6xl text-white opacity-50"></i>';
-          card.appendChild(iconOverlay);
         };
         
         container.appendChild(card);
@@ -750,16 +537,100 @@
       filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));
     }
     
+    /* Tool icons with tooltips */
+    .tool-icon {
+      width: 3rem;
+      height: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 0.75rem;
+      font-size: 1.5rem;
+      color: #4a5568;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .dark .tool-icon {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .tool-icon:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.3);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+
+    .dark .tool-icon:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .tool-icon .tooltip {
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .tool-icon:hover .tooltip {
+      opacity: 1;
+      visibility: visible;
+      bottom: -40px;
+    }
+
     /* Dark mode styles */
     .dark .glass-card {
       background-color: rgba(17, 24, 39, 0.7);
     }
     
-    /* Mobile menu adjustments */
+    /* Mobile menu adjustments - Improved dark mode */
     @media (max-width: 768px) {
       #sidemenu {
-        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
       }
+      
+      .dark #sidemenu {
+        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5), 0 0 15px rgba(139, 92, 246, 0.2);
+        background-color: rgba(17, 24, 39, 0.98) !important;
+      }
+      
+      .tool-icon .tooltip {
+        display: none;
+      }
+    }
+
+    /* Project cards - your exact design with black text */
+    .group:hover .group-hover\:bottom-7 {
+      bottom: 1.75rem;
+    }
+    
+    .group-hover\:bg-lime-300:hover {
+      background-color: #d9f99d;
+    }
+
+    /* Force black text for project titles and descriptions */
+    .text-black {
+      color: #000000 !important;
+    }
+
+    /* Mobile menu link hover effects */
+    #sidemenu a:hover i {
+      transform: scale(1.1);
+      transition: transform 0.2s ease;
     }
   </style>
 </body>
