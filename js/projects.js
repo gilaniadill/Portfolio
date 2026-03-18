@@ -50,13 +50,15 @@ function renderProjects() {
     card.className = "project-card";
     card.style.backgroundImage = `url('${work.image}')`;
     
-    // Add AOS attributes
-    card.setAttribute("data-aos", "zoom-in");
-    card.setAttribute("data-aos-delay", (index * 100).toString());
+    // Only add AOS on larger screens for performance
+    if (window.innerWidth >= 768) {
+      card.setAttribute("data-aos", "zoom-in");
+      card.setAttribute("data-aos-delay", (index * 50).toString());
+    }
     
     // Card HTML structure with black text
     card.innerHTML = `
-      <a href="${work.link}" target="_blank" class="block w-full h-full">
+      <a href="${work.link}" target="_blank" rel="noopener noreferrer" class="block w-full h-full">
         <div class="project-overlay">
           <div>
             <h2 class="font-semibold text-black">${work.title}</h2>
@@ -74,6 +76,11 @@ function renderProjects() {
     img.src = work.image;
     img.onerror = function() {
       card.style.backgroundImage = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+      // Add a subtle pattern or icon for fallback
+      const fallbackIcon = document.createElement('div');
+      fallbackIcon.className = 'absolute inset-0 flex items-center justify-center opacity-20';
+      fallbackIcon.innerHTML = '<i class="fas fa-code text-6xl text-white"></i>';
+      card.appendChild(fallbackIcon);
     };
     
     container.appendChild(card);
@@ -82,3 +89,12 @@ function renderProjects() {
 
 // Render projects when page loads
 document.addEventListener('DOMContentLoaded', renderProjects);
+
+// Re-render on resize if needed (optional)
+let resizeTimeout;
+window.addEventListener('resize', function() {
+  clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(function() {
+    renderProjects();
+  }, 250);
+});
