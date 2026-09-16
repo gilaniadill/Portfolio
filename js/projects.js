@@ -2,9 +2,9 @@
 const works = [
   {
     title: "School Management System",
-    description: "Management System for Schools (Mean Stack)",
+    description: "Mean Stack Project",
     image: "./images/sms.png",
-    link: "https://gilaniadill.github.io/sms",
+    link: "https://gilaniadill.github.io/sms-frontend",
   },
   {
     title: "Buraq Studio",
